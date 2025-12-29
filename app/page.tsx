@@ -4,5 +4,5 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 export default function Home() {
-  return <main className="min-h-screen flex flex-col items-center"></main>;
+  return <main className=""></main>;
 }
