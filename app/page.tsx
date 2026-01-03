@@ -3,5 +3,5 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 export default function Home() {
-  return <main className=""></main>;
+  return <main className="">test</main>;
 }
