@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { poppins } from "@/components/ui/fonts";
 import "./globals.css";
-import Image from "next/image";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
+import Header from "@/components/header";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -28,21 +28,13 @@ export default function RootLayout({
       <body className={`${poppins.className} antialiased bg-black`}>
         <Suspense fallback={<div></div>}>
           <Vortex
-            backgroundColor="black"
+            backgroundColor="transparent"
             rangeY={400}
             particleCount={230}
             baseHue={120}
             className="min-h-screen"
           >
-            <header className="w-full bg-gradient-to-b from-black z-10 flex items-center  mx-5 shadow-2xl">
-              <Image
-                src="/logo.svg"
-                width={250}
-                height={95}
-                loading="eager"
-                alt="Logo devslug"
-              />
-            </header>
+            <Header />
             {children}
           </Vortex>
         </Suspense>
