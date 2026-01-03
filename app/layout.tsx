@@ -3,7 +3,8 @@ import { poppins } from "@/components/ui/fonts";
 import "./globals.css";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
-import Header from "@/components/header";
+import SessionWrapper from "@/components/Session";
+import Header from "@/components/Header";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -24,21 +25,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} antialiased bg-black`}>
-        <Suspense fallback={<div></div>}>
-          <Vortex
-            backgroundColor="transparent"
-            rangeY={400}
-            particleCount={230}
-            baseHue={120}
-            className="min-h-screen"
-          >
-            <Header />
-            {children}
-          </Vortex>
-        </Suspense>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${poppins.className} antialiased bg-black`}>
+          <Suspense fallback={<div></div>}>
+            <Vortex
+              backgroundColor="transparent"
+              rangeY={400}
+              particleCount={230}
+              baseHue={120}
+              className="min-h-screen"
+            >
+              <Header />
+              {children}
+            </Vortex>
+          </Suspense>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }
