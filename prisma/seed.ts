@@ -7,43 +7,15 @@ const adapter = new PrismaPg({
 const prisma = new PrismaClient({ adapter });
 async function main() {
   const alice = await prisma.user.upsert({
-    where: { email: "alice@prisma.io" },
+    where: { email: "admin@devslug.dev" },
     update: {},
     create: {
-      email: "alice@prisma.io",
-      name: "Alice",
-      posts: {
-        create: {
-          title: "Check out Prisma with Next.js",
-          content: "https://www.prisma.io/nextjs",
-          published: true,
-        },
-      },
+      email: "admin@devslug.dev",
+      name: "admin",
     },
   });
-  const bob = await prisma.user.upsert({
-    where: { email: "bob@prisma.io" },
-    update: {},
-    create: {
-      email: "bob@prisma.io",
-      name: "Bob",
-      posts: {
-        create: [
-          {
-            title: "Follow Prisma on Twitter",
-            content: "https://twitter.com/prisma",
-            published: true,
-          },
-          {
-            title: "Follow Nexus on Twitter",
-            content: "https://twitter.com/nexusgql",
-            published: true,
-          },
-        ],
-      },
-    },
-  });
-  console.log({ alice, bob });
+
+  console.log({ alice });
 }
 main()
   .then(async () => {
