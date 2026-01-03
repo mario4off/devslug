@@ -34,7 +34,7 @@ export default function RootLayout({
             baseHue={120}
             className="min-h-screen"
           >
-            <header className="w-full bg-gradient-to-b from-black z-10 flex items-center  mx-4 shadow-2xl">
+            <header className="w-full bg-gradient-to-b from-black z-10 flex items-center  mx-5 shadow-2xl">
               <Image
                 src="/logo.svg"
                 width={250}
