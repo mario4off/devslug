@@ -7,7 +7,9 @@ import SignOut from "./SignOut";
 
 export default function Header() {
   const { data: session, status } = useSession();
-  console.log(session);
+
+  const isLoggedIn = status === "authenticated";
+
   return (
     <header className="w-full bg-gradient-to-b from-black flex items-center justify-between  px-2 shadow-2xl">
       <Image
@@ -17,9 +19,7 @@ export default function Header() {
         loading="eager"
         alt="Logo devslug"
       />
-
-      <SignIn className="me-5" />
-      <SignOut className="me-5" />
+      {isLoggedIn ? <SignOut className="me-5" /> : <SignIn className="me-5" />}
     </header>
   );
 }

@@ -15,7 +15,7 @@ export default function SignIn({ className }: { className: string }) {
         height={30}
         alt="Logo google"
       />
-      <p>Inicia Sesión</p>
+      <p className="text-black">Iniciar sesión</p>
     </button>
   );
 }

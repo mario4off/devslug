@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "@/lib/prisma";
 
-const handler = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -18,6 +18,10 @@ const handler = NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: "/auth/signin",
+    error: "/auth/error",
+  },
 });
 
-export { handler as GET, handler as POST };
+export const { GET, POST } = handlers;
