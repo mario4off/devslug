@@ -4,7 +4,7 @@ import "./globals.css";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
 import SessionWrapper from "@/components/Session";
-import Header from "@/components/Header";
+import Header from "@/components/MainHeader";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -37,7 +37,7 @@ export default function RootLayout({
               className="min-h-screen"
             >
               <Header />
-              {children}
+              <main>{children}</main>
             </Vortex>
           </Suspense>
         </body>
