@@ -1,0 +1,42 @@
+import PrimaryButton from "./ui/PrimaryButton";
+
+function ShortenerGuest() {
+  return (
+    <div className="bg-zinc-950 w-4/5 border-zinc-300 border rounded-md p-10 flex flex-col items-center justify-center">
+      <h2 className="text-center">
+        Introduce tu URL y consigue una versión acortada
+      </h2>
+      <form
+        action=""
+        className="flex flex-col gap-10 justify-center items-center w-full my-10"
+      >
+        <div className="flex justify-center w-full">
+          <label
+            className="bg-slate-800 text-white rounded-l-md p-3 whitespace-nowrap"
+            htmlFor="url"
+          >
+            🔗 URL
+          </label>
+          <input
+            className="rounded-r-md w-4/6 p-3"
+            type="text"
+            name="url"
+            id="url"
+            placeholder="Pega aquí la URL"
+          />
+        </div>
+        <PrimaryButton title={"Acortar URL"} />
+      </form>
+      <div className="flex flex-col items-center gap-2">
+        <p className="text-center">
+          ⏱️ La nueva URL tendrá una validez de 7 días.
+        </p>
+        <p>
+          🚀 Inicia sesión para mantener los enlaces y controlar tus métricas
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default ShortenerGuest;

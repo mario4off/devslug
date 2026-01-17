@@ -2,14 +2,10 @@
 
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import SignIn from "./SignIn";
-import SignOut from "./SignOut";
+import AuthButton from "./AuthButton";
 
 export default function Header() {
   const { data: session, status } = useSession();
-
-  const isLoggedIn = status === "authenticated";
-
   return (
     <header className="w-full bg-gradient-to-b from-black flex items-center justify-between  px-2 shadow-2xl">
       <Image
@@ -19,7 +15,12 @@ export default function Header() {
         loading="eager"
         alt="Logo devslug"
       />
-      {isLoggedIn ? <SignOut className="me-5" /> : <SignIn className="me-5" />}
+      <div className="flex flex-col md:flex-row items-center gap-6 my-3">
+        <p className="text-center">
+          {!session ? "" : `👋    Hola, ${session?.user?.name}`}
+        </p>
+        <AuthButton className="me-5" />
+      </div>
     </header>
   );
 }
