@@ -1,11 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { useSession } from "next-auth/react";
 import AuthButton from "./AuthButton";
+import { auth } from "@/auth";
 
-export default function Header() {
-  const { data: session, status } = useSession();
+export default async function Header() {
+  const session = await auth();
+
+  const isLogged = !!session;
+
   return (
     <header className="w-full bg-gradient-to-b from-black flex items-center justify-between  px-2 shadow-2xl">
       <Image
@@ -19,7 +20,7 @@ export default function Header() {
         <p className="text-center">
           {!session ? "" : `👋    Hola, ${session?.user?.name}`}
         </p>
-        <AuthButton className="me-5" />
+        <AuthButton isLogged={isLogged} className="me-5" />
       </div>
     </header>
   );

@@ -1,13 +1,15 @@
 "use client";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 
-export default function SignIn({ className }: { className: string }) {
-  const { data: session, status } = useSession();
-
-  if (status === "loading") return null;
-
-  return !session ? (
+export default function SignIn({
+  className,
+  isLogged = false,
+}: {
+  className: string;
+  isLogged: boolean;
+}) {
+  return !isLogged ? (
     <button
       onClick={() => signIn("google")}
       className={`${className} bg-white border rounded-md flex flex-col md:flex-row items-center gap-4 p-2 transform hover:scale-105 transition duration-300 ease-in-out`}
