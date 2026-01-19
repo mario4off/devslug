@@ -8,7 +8,7 @@ export default async function Header() {
   const isLogged = !!session;
 
   return (
-    <header className="w-full bg-gradient-to-b from-black flex items-center justify-between  px-2 shadow-2xl">
+    <header className="w-full bg-gradient-to-b from-black flex items-start justify-between  px-2 shadow-2xl">
       <Image
         src="/logo.svg"
         width={250}
@@ -16,8 +16,8 @@ export default async function Header() {
         loading="eager"
         alt="Logo devslug"
       />
-      <div className="flex flex-col md:flex-row items-center gap-6 my-3">
-        <p className="text-center">
+      <div className="flex flex-col md:flex-row items-end md:items-center gap-3 md:gap-6 my-4 sm:my-3">
+        <p className="text-end">
           {!session ? "" : `👋    Hola, ${session?.user?.name}`}
         </p>
         <AuthButton isLogged={isLogged} className="me-5" />

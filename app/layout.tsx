@@ -34,7 +34,7 @@ export default function RootLayout({
               rangeY={400}
               particleCount={230}
               baseHue={120}
-              className="min-h-screen"
+              className="min-h-screen  overflow-hidden"
             >
               <Header />
               <main>{children}</main>
