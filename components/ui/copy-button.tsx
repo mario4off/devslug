@@ -40,7 +40,7 @@ function CopyButton({ value = "" }: { value: string }) {
         />
       </button>
       <input
-        className="rounded-r-md w-5/6 md:w-3/6 p-3 bg-gray-200 text-gray-800"
+        className="rounded-r-md w-5/6 md:w-3/6 p-3 bg-slate-700 text-gray-600"
         type="text"
         id="newUrl"
         readOnly
