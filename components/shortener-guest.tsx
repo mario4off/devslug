@@ -1,4 +1,5 @@
-import PrimaryButton from "./ui/PrimaryButton";
+import CopyButton from "./ui/copy-button";
+import PrimaryButton from "./ui/primary-button";
 
 function ShortenerGuest() {
   return (
@@ -24,7 +25,8 @@ function ShortenerGuest() {
             id="url"
             placeholder="Pega aquí la URL"
           />
-        </div>
+        </div>{" "}
+        <CopyButton value="" />
         <PrimaryButton title={"Acortar URL"} />
       </form>
       <div className="flex flex-col items-center gap-2">

@@ -3,8 +3,8 @@ import { poppins } from "@/components/ui/fonts";
 import "./globals.css";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
-import SessionWrapper from "@/components/Session";
-import Header from "@/components/MainHeader";
+import SessionWrapper from "@/components/session";
+import Header from "@/components/main-header";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AuthButton from "./AuthButton";
+import AuthButton from "./auth-button";
 import { auth } from "@/auth";
 
 export default async function Header() {

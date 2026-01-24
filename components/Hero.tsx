@@ -1,4 +1,4 @@
-import ShortenerGuest from "./ShortenerGuest";
+import ShortenerGuest from "./shortener-guest";
 
 function Hero() {
   return (
