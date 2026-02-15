@@ -27,7 +27,7 @@ export default function SignIn({
     <button
       onClick={() => signOut()}
       type="button"
-      className={`${className}m-0 bg-black border border-gray-600 rounded-md text-white p-3 flex items-center gap-3  transition hover:border-white duration-300 ease-in-out`}
+      className={`${className} m-0 bg-black border border-gray-600 rounded-md text-white p-3 flex items-center gap-3  transition hover:border-white duration-300 ease-in-out`}
     >
       <Image
         src="/icons/signout.svg"

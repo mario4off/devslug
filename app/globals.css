@@ -22,5 +22,5 @@ p {
 }
 
 input {
-  @apply text-gray-700;
+  @apply text-gray-700 p-3;
 }

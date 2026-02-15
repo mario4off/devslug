@@ -12,7 +12,7 @@ function CopyButton({ value = "" }: { value: string }) {
       await navigator.clipboard.writeText(value);
       setCopied(true);
 
-      setTimeout(() => setCopied(false), 3000);
+      setTimeout(() => setCopied(false), 1500);
     } catch (err) {
       console.log("error en la copia");
     }

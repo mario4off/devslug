@@ -19,7 +19,7 @@ function ShortenerGuest() {
             🔗 <span className="hidden md:block">URL</span>
           </label>
           <input
-            className="rounded-r-md w-full p-3"
+            className="rounded-r-md w-full"
             type="text"
             name="url"
             id="url"
