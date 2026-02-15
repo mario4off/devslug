@@ -1,17 +1,15 @@
-// pages/api/test-db.ts
-import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "@/lib/prisma"; // ajusta la ruta a tu prisma
+import { NextRequest, NextResponse } from "next/server";
+import prisma from "@/lib/prisma"; // ajusta según tu ruta real
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+export async function GET(req: NextRequest) {
   try {
-    // Query de prueba a la tabla users
     const users = await prisma.user.findMany({ take: 1 });
-    res.status(200).json({ success: true, users });
+    return NextResponse.json({ success: true, users });
   } catch (err) {
     console.error("DB ERROR:", err);
-    res.status(500).json({ success: false, error: (err as any).message });
+    return NextResponse.json(
+      { success: false, error: (err as any).message },
+      { status: 500 },
+    );
   }
 }
