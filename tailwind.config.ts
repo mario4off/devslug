@@ -10,8 +10,9 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {},
-      borderRadius: {},
+      colors: {
+        secondary: "#94A3B8",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

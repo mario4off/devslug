@@ -3,7 +3,7 @@ import PrimaryButton from "./ui/primary-button";
 
 function ShortenerGuest() {
   return (
-    <div className="bg-zinc-950 w-4/5 border-zinc-300 border rounded-md p-5 md:p-10 md:px-0 flex flex-col items-center justify-center">
+    <div className="bg-zinc-950 w-3/5 border-zinc-300 border rounded-md py-5 md:py-14 md:px-0 flex flex-col my-10 items-center justify-center">
       <h2 className="text-center text-base md:text-xl">
         Introduce tu URL y consigue una versión acortada
       </h2>

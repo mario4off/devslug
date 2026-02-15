@@ -4,7 +4,8 @@ import "./globals.css";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
 import SessionWrapper from "@/components/session";
-import Header from "@/components/main-header";
+import MainHeader from "@/components/main-header";
+import MainFooter from "@/components/main-footer";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -32,12 +33,13 @@ export default function RootLayout({
             <Vortex
               backgroundColor="transparent"
               rangeY={400}
-              particleCount={230}
+              particleCount={150}
               baseHue={120}
-              className="min-h-screen  overflow-hidden"
+              className="min-h-screen  overflow-hidden  grid grid-rows-[auto_1fr_auto]"
             >
-              <Header />
-              <main>{children}</main>
+              <MainHeader />
+              <main className="flex-1">{children}</main>
+              <MainFooter />
             </Vortex>
           </Suspense>
         </body>
