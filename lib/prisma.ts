@@ -17,4 +17,13 @@ const prisma =
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
+async function testConnection() {
+  try {
+    const users = await prisma.user.findMany({ take: 1 }); // query de prueba
+    console.log("✅ DB OK", users);
+  } catch (err) {
+    console.error("❌ DB ERROR", err);
+  }
+}
+
 export default prisma;
