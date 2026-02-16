@@ -14,7 +14,7 @@ export default function SignIn({
   return !isLogged ? (
     <button
       onClick={() => signIn("google")}
-      className={`${className} bg-white border rounded-md flex items-center gap-4 p-2 transform hover:scale-105 transition duration-300 ease-in-out`}
+      className={`${className} ${hidden == "" ? "hidden" : ""} bg-white border rounded-md flex items-center gap-4 p-2 transform hover:scale-105 transition duration-300 ease-in-out`}
       type="button"
     >
       <Image
@@ -29,7 +29,7 @@ export default function SignIn({
     <button
       onClick={() => signOut()}
       type="button"
-      className={`${className} m-0 bg-gray-900 rounded-md text-gray-300 p-2 flex items-center gap-3  transition hover:border-white hover:text-white hover:bg-slate-800 duration-300 ease-in-out`}
+      className={`${className} ${hidden} m-0 bg-gray-900 rounded-md text-gray-300 p-2 flex items-center gap-3  transition hover:border-white hover:text-white hover:bg-slate-800 duration-300 ease-in-out`}
     >
       {/* <Image
         src="/icons/signout.svg"
@@ -37,7 +37,9 @@ export default function SignIn({
         height={30}
         alt="cerrar sesión"
       /> */}
-      <span className={` md:inline text-sm md:text-lg`}>Cerrar sesión</span>
+      <span className={`${hidden} md:inline text-xs md:text-lg`}>
+        Cerrar sesión
+      </span>
     </button>
   );
 }
