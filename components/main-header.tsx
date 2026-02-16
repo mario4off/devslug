@@ -8,7 +8,7 @@ export default async function MainHeader() {
   const isLogged = !!session;
 
   return (
-    <header className="w-full bg-gradient-to-b from-black flex items-start justify-between  px-6 pt-3 shadow-2xl">
+    <header className="w-full bg-gradient-to-b from-black flex items-center justify-center md:justify-between px-6 pt-3 shadow-2xl">
       <Image
         src="/logo.svg"
         width={250}
@@ -16,12 +16,8 @@ export default async function MainHeader() {
         loading="eager"
         alt="Logo devslug"
       />
-      <div className="flex flex-col md:flex-row items-end md:items-center gap-3 md:gap-6 my-4 sm:my-3">
-        <p className="text-end">
-          {!session ? "" : `👋    Hola, ${session?.user?.name}`}
-        </p>
-        <AuthButton isLogged={isLogged} className="me-5" />
-      </div>
+
+      <AuthButton isLogged={isLogged} className="me-3  md:flex" />
     </header>
   );
 }
