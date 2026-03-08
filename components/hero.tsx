@@ -1,6 +1,8 @@
 import ShortenerGuest from "./shortener-guest";
 import AuthButton from "./auth-button";
 import { auth } from "@/auth";
+import SignInButton from "./sign-in-button";
+import SignOutButton from "./sign-out-button";
 
 async function Hero() {
   const session = await auth();
@@ -16,7 +18,11 @@ async function Hero() {
           Convierte enlaces largos en URLs inteligentes con estadísticas en
           tiempo real
         </p>
-        <AuthButton isLogged={isLogged} className="my-10 block md:hidden" />
+        {!isLogged ? (
+          <SignInButton className="block md:hidden mt-4 mb-3" />
+        ) : (
+          <SignOutButton className="mt-5 mb-3 block md:hidden" />
+        )}
       </header>
 
       <section className="flex justify-center mt-5 md:mt-10">

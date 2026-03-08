@@ -38,7 +38,7 @@ export default function RootLayout({
               className="min-h-screen  overflow-hidden  grid grid-rows-[auto_1fr_auto]"
             >
               <MainHeader />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1 my-2">{children}</main>
               <MainFooter />
             </Vortex>
           </Suspense>

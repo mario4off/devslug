@@ -1,6 +1,7 @@
 import Image from "next/image";
-import AuthButton from "./auth-button";
 import { auth } from "@/auth";
+import SignInButton from "./sign-in-button";
+import SignOutButton from "./sign-out-button";
 
 export default async function MainHeader() {
   const session = await auth();
@@ -17,7 +18,11 @@ export default async function MainHeader() {
         alt="Logo devslug"
       />
 
-      <AuthButton isLogged={isLogged} className="me-3  md:flex" />
+      {!isLogged ? (
+        <SignInButton className="hidden md:flex" />
+      ) : (
+        <SignOutButton className="hidden md:flex" />
+      )}
     </header>
   );
 }
