@@ -26,7 +26,11 @@ function ShortenerGuest() {
             placeholder="Pega aquí la URL"
           />
         </div>
-        <CopyButton value="" />
+        <CopyButton
+          className="w-full"
+          value=""
+          placeholder="Copia la nueva URL"
+        />
         <PrimaryButton title={"Acortar URL"} />
       </form>
       <div className="w-7/8  md:w-3/4 flex flex-col gap-5">

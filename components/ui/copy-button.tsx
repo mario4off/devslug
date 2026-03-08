@@ -4,7 +4,15 @@ import { useState } from "react";
 import Copy from "./icons/copy";
 import Check from "./icons/check";
 
-function CopyButton({ value = "" }: { value: string }) {
+function CopyButton({
+  className = "",
+  value = "",
+  placeholder = "",
+}: {
+  className: string;
+  value: string;
+  placeholder: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -19,7 +27,7 @@ function CopyButton({ value = "" }: { value: string }) {
   };
 
   return (
-    <div className="flex justify-center w-full">
+    <div className={`flex justify-center ${className}`}>
       <button
         type="button"
         onClick={handleCopy}
@@ -45,7 +53,7 @@ function CopyButton({ value = "" }: { value: string }) {
         id="newUrl"
         readOnly
         value={value}
-        placeholder="Copia la nueva URL"
+        placeholder={placeholder}
       />
     </div>
   );
