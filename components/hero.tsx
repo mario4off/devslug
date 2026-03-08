@@ -18,11 +18,7 @@ async function Hero() {
           Convierte enlaces largos en URLs inteligentes con estadísticas en
           tiempo real
         </p>
-        {!isLogged ? (
-          <SignInButton className="block md:hidden mt-4 mb-3" />
-        ) : (
-          <SignOutButton className="mt-5 mb-3 block md:hidden" />
-        )}
+        {!isLogged && <SignInButton className="block md:hidden mt-4 mb-3" />}
       </header>
 
       <section className="flex justify-center mt-5 md:mt-10">
