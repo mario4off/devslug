@@ -4,9 +4,10 @@ import { useActionState } from "react";
 import CopyButton from "./ui/copy-button";
 import PrimaryButton from "./ui/primary-button";
 import { actions } from "@/lib/actions";
+import { type FormState } from "@/validations/url";
 
 function ShortenerGuest() {
-  const INITIAL_STATE = { url: null };
+  const INITIAL_STATE: FormState = { data: { url: null } };
   const [formState, formAction] = useActionState(
     actions.url.insertUrl,
     INITIAL_STATE,

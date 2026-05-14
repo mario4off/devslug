@@ -8,3 +8,13 @@ export const guestUrlFormSchema = z.object({
       message: "La URL no puede exceder 250 caracteres de longitud.",
     }),
 });
+
+export type FormState = {
+  success?: boolean;
+  message?: string;
+  data?: {
+    url?: string | null;
+    slug?: string;
+  };
+  errors?: { url?: string[] };
+};
