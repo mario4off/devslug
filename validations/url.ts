@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const urlSchema = z.object({
+export const guestUrlFormSchema = z.object({
   url: z
     .string()
     .min(3, { message: "La URL debe tener al menos 3 caracteres de longitud." })
