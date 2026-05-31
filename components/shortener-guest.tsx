@@ -4,10 +4,10 @@ import { useActionState } from "react";
 import CopyButton from "./ui/copy-button";
 import PrimaryButton from "./ui/primary-button";
 import { actions } from "@/lib/actions";
-import { type FormState } from "@/validations/url";
+import { type UrlFormState } from "@/validations/url";
 
-function ShortenerGuest() {
-  const INITIAL_STATE: FormState = { data: { url: null } };
+export default function ShortenerGuest() {
+  const INITIAL_STATE: UrlFormState = { data: { url: null, userId: null } };
   const [formState, formAction] = useActionState(
     actions.url.insertUrl,
     INITIAL_STATE,
@@ -54,5 +54,3 @@ function ShortenerGuest() {
     </div>
   );
 }
-
-export default ShortenerGuest;

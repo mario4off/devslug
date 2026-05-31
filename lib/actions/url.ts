@@ -1,20 +1,23 @@
 "use server";
 
 import { guestUrlFormSchema } from "@/validations/url";
-import { type FormState } from "@/validations/url";
+import { type UrlFormState } from "@/validations/url";
 import { z } from "zod";
+import prisma from "@/lib/prisma";
+import { auth } from "@/auth";
 
 export async function insertUrl(
-  prevState: FormState,
+  prevState: UrlFormState,
   formdata: FormData,
-): Promise<FormState> {
-  const url = formdata.get("url") as string;
+): Promise<UrlFormState> {
+  const guestUrl = {
+    url: formdata.get("url") as string,
+    slug: "test",
+  };
+  const validatedSchema = guestUrlFormSchema.safeParse(guestUrl);
 
-  const result = guestUrlFormSchema.safeParse({ url });
-
-  if (!result.success) {
-    const flattenedErrors = z.flattenError(result.error);
-    console.log("Validation errors:", flattenedErrors.fieldErrors);
+  if (!validatedSchema.success) {
+    const flattenedErrors = z.flattenError(validatedSchema.error);
 
     return {
       success: false,
@@ -24,12 +27,20 @@ export async function insertUrl(
     };
   }
 
+  const result = await prisma.url.create({
+    data: {
+      slug: validatedSchema.data.slug,
+      originalUrl: validatedSchema.data.url,
+    },
+  });
+
   return {
     success: true,
     message: "Url registered",
     data: {
-      url: url,
-      slug: url,
+      url: "",
+      slug: "",
+      userId: null,
     },
   };
 }

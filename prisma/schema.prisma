@@ -70,8 +70,8 @@ model Url {
   id Int @id @default(autoincrement())
   slug String @unique
   originalUrl String
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String
+    userId String?
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
   clickCount Int @default(0)
-  createdAt DateTime
+  createdAt DateTime @default(now())
 }
