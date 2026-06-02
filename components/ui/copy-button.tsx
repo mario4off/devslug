@@ -27,7 +27,7 @@ function CopyButton({
   };
 
   return (
-    <div className={`flex justify-center ${className}`}>
+    <div className={`flex justify-center ${className} `}>
       <button
         type="button"
         onClick={handleCopy}
@@ -48,7 +48,7 @@ function CopyButton({
         />
       </button>
       <input
-        className={`truncate rounded-r-md w-5/6 md:w-3/6 p-3 bg-slate-700 ${value == "" ? "text-gray-900" : "transition-all duration-600 text-gray-200"} `}
+        className={`truncate rounded-r-md w-full p-3 bg-slate-700 ${value == "" ? "text-gray-900" : "transition-all duration-600 text-gray-200"} `}
         type="text"
         id="newUrl"
         readOnly

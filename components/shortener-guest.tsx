@@ -5,6 +5,7 @@ import CopyButton from "./ui/copy-button";
 import PrimaryButton from "./ui/primary-button";
 import { actions } from "@/lib/actions";
 import { type UrlFormState } from "@/validations/url";
+import LinkSVG from "@/components/ui/icons/link";
 
 export default function ShortenerGuest() {
   const INITIAL_STATE: UrlFormState = { data: { url: null, userId: null } };
@@ -26,10 +27,12 @@ export default function ShortenerGuest() {
             className="bg-slate-800 text-white rounded-l-md p-3 flex gap-2"
             htmlFor="url"
           >
-            🔗 <span className="hidden md:block">URL</span>
+            <span>
+              <LinkSVG color="white" className="" />
+            </span>
           </label>
           <input
-            className="rounded-r-md w-full"
+            className=" truncate rounded-r-md w-full"
             type="text"
             name="url"
             id="url"
@@ -37,7 +40,7 @@ export default function ShortenerGuest() {
           />
         </div>
         <CopyButton
-          className="w-full  text-white"
+          className="w-full"
           value={formState.data?.slug ?? ""}
           placeholder="Copia la nueva URL"
         />
