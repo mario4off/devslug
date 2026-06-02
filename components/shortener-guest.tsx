@@ -37,8 +37,8 @@ export default function ShortenerGuest() {
           />
         </div>
         <CopyButton
-          className="w-full"
-          value=""
+          className="w-full  text-white"
+          value={formState.data?.slug ?? ""}
           placeholder="Copia la nueva URL"
         />
         <PrimaryButton type="submit" title={"Acortar URL"} />

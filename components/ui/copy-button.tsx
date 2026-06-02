@@ -48,11 +48,11 @@ function CopyButton({
         />
       </button>
       <input
-        className="rounded-r-md w-5/6 md:w-3/6 p-3 bg-slate-700 text-gray-600"
+        className={`truncate rounded-r-md w-5/6 md:w-3/6 p-3 bg-slate-700 ${value == "" ? "text-gray-900" : "transition-all duration-600 text-gray-200"} `}
         type="text"
         id="newUrl"
         readOnly
-        value={value}
+        value={value == "" ? "" : `https://devslug.dev/${value}`}
         placeholder={placeholder}
       />
     </div>

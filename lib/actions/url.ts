@@ -12,8 +12,9 @@ export async function insertUrl(
 ): Promise<UrlFormState> {
   const guestUrl = {
     url: formdata.get("url") as string,
-    slug: generateSlug(),
   };
+  const slug = generateSlug();
+
   const validatedSchema = guestUrlFormSchema.safeParse(guestUrl);
 
   if (!validatedSchema.success) {
@@ -29,7 +30,7 @@ export async function insertUrl(
 
   const result = await prisma.url.create({
     data: {
-      slug: validatedSchema.data.slug,
+      slug: slug,
       originalUrl: validatedSchema.data.url,
     },
   });
@@ -38,9 +39,7 @@ export async function insertUrl(
     success: true,
     message: "Url registered",
     data: {
-      url: guestUrl.url,
-      slug: guestUrl.slug,
-      userId: null,
+      ...result,
     },
   };
 }
