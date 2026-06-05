@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
 
 export function generateSlug(): string {
-  return nanoid();
+  return nanoid(7);
 }
