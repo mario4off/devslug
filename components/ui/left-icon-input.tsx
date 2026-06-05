@@ -18,7 +18,7 @@ export default function LeftIconInput({
           <span>{icon}</span>
         </label>
         <input
-          className=" truncate rounded-r-md w-full"
+          className=" truncate rounded-r-md w-full px-5"
           type="text"
           name="url"
           id="url"
