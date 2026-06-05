@@ -5,14 +5,3 @@ export const urlFormSchema = z.object({
   slug: z.string().length(7),
   userId: z.int().positive().optional(),
 });
-
-export type UrlFormState = {
-  success?: boolean;
-  message?: string;
-  data?: {
-    url?: string | null;
-    slug?: string;
-    userId: string | null;
-  };
-  errors?: { url?: string[] };
-};

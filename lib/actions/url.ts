@@ -1,7 +1,7 @@
 "use server";
 
 import { urlFormSchema } from "@/validations/url";
-import { type UrlFormState } from "@/validations/url";
+import { type UrlFormState } from "@/types/validations";
 import { z } from "zod";
 import prisma from "@/lib/db/db";
 import { generateSlug } from "../utils/url";
