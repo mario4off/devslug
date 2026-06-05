@@ -6,6 +6,8 @@ import PrimaryButton from "./ui/primary-button";
 import { actions } from "@/lib/actions";
 import { type UrlFormState } from "@/types/validations";
 import LinkSVG from "@/components/ui/icons/link";
+import FieldError from "./ui/field-error";
+import LeftIconInput from "./ui/left-icon-input";
 
 export default function ShortenerGuest() {
   const INITIAL_STATE: UrlFormState = { data: { url: null, userId: null } };
@@ -13,7 +15,7 @@ export default function ShortenerGuest() {
     actions.url.insertUrl,
     INITIAL_STATE,
   );
-  const host = window.location.host;
+  const host = process.env.NEXT_PUBLIC_SITE_URL;
 
   return (
     <div className="bg-zinc-950 w-5/6 md:w-auto border-zinc-300 border rounded-md p-12 flex flex-col items-center justify-center">
@@ -24,23 +26,11 @@ export default function ShortenerGuest() {
         action={formAction}
         className=" w-5/6 flex flex-col gap-6 md:gap-10 justify-center items-center my-5 md:my-10"
       >
-        <div className="flex justify-center w-full">
-          <label
-            className="bg-slate-800 text-white rounded-l-md p-3 flex gap-2"
-            htmlFor="url"
-          >
-            <span>
-              <LinkSVG color="white" className="" />
-            </span>
-          </label>
-          <input
-            className=" truncate rounded-r-md w-full"
-            type="text"
-            name="url"
-            id="url"
-            placeholder="Pega aquí la URL"
-          />
-        </div>
+        <LeftIconInput
+          icon={<LinkSVG color="white" className="" />}
+          error={formState.errors?.url}
+        />
+
         <CopyButton
           className="w-full"
           value={
