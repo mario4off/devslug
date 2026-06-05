@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import CopyButton from "./ui/copy-button";
 import PrimaryButton from "./ui/primary-button";
 import { actions } from "@/lib/actions";
-import { type UrlFormState } from "@/validations/url";
+import { type UrlFormState } from "@/types/validations";
 import LinkSVG from "@/components/ui/icons/link";
 
 export default function ShortenerGuest() {
@@ -13,6 +13,8 @@ export default function ShortenerGuest() {
     actions.url.insertUrl,
     INITIAL_STATE,
   );
+  const host = window.location.host;
+
   return (
     <div className="bg-zinc-950 w-5/6 md:w-auto border-zinc-300 border rounded-md p-12 flex flex-col items-center justify-center">
       <h2 className="text-center text-base md:text-xl">
@@ -41,7 +43,11 @@ export default function ShortenerGuest() {
         </div>
         <CopyButton
           className="w-full"
-          value={formState.data?.slug ?? ""}
+          value={
+            formState.data?.slug != null
+              ? `${host}/${formState.data?.slug}`
+              : ""
+          }
           placeholder="Copia la nueva URL"
         />
         <PrimaryButton type="submit" title={"Acortar URL"} />

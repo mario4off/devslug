@@ -52,7 +52,7 @@ function CopyButton({
         type="text"
         id="newUrl"
         readOnly
-        value={value == "" ? "" : `https://devslug.dev/${value}`}
+        value={value ?? ""}
         placeholder={placeholder}
       />
     </div>

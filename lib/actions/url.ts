@@ -19,7 +19,7 @@ export async function insertUrl(
 
   if (!validatedSchema.success) {
     const flattenedErrors = z.flattenError(validatedSchema.error);
-
+    console.log("mierda");
     return {
       success: false,
       message: "Validation error",
