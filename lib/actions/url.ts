@@ -1,6 +1,6 @@
 "use server";
 
-import { guestUrlFormSchema } from "@/validations/url";
+import { urlFormSchema } from "@/validations/url";
 import { type UrlFormState } from "@/validations/url";
 import { z } from "zod";
 import prisma from "@/lib/db/db";
@@ -15,7 +15,7 @@ export async function insertUrl(
   };
   const slug = generateSlug();
 
-  const validatedSchema = guestUrlFormSchema.safeParse(guestUrl);
+  const validatedSchema = urlFormSchema.safeParse(guestUrl);
 
   if (!validatedSchema.success) {
     const flattenedErrors = z.flattenError(validatedSchema.error);
