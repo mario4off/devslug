@@ -3,7 +3,6 @@ import { poppins } from "@/components/ui/fonts";
 import "./globals.css";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
-import SessionWrapper from "@/components/session";
 import MainHeader from "@/components/main-header";
 import MainFooter from "@/components/main-footer";
 
@@ -26,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SessionWrapper>
+    <>
       <html lang="en" suppressHydrationWarning>
         <body className={`${poppins.className} antialiased bg-black`}>
           <Suspense fallback={<div></div>}>
@@ -44,6 +43,6 @@ export default function RootLayout({
           </Suspense>
         </body>
       </html>
-    </SessionWrapper>
+    </>
   );
 }
