@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import prisma from "@/lib/db/db";
+import prisma from "@/lib/db";
 import { findUrlBySlug } from "@/services/url.services";
 
 export async function GET(

@@ -3,7 +3,7 @@
 import { urlFormSchema } from "@/validations/url";
 import { type UrlFormState } from "@/types/validations";
 import { z } from "zod";
-import prisma from "@/lib/db/db";
+import prisma from "@/lib/db";
 import { generateSlug } from "../utils/url";
 
 export async function insertUrl(
