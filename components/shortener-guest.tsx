@@ -20,9 +20,11 @@ export default function ShortenerGuest() {
 
   useEffect(() => {
     if (formState.success) {
-      sileo.success({ title: "Changes saved" });
+      sileo.success({ title: "URL acortada correctamente" });
+    } else if (formState.errors) {
+      sileo.error({ description: formState?.message });
     }
-  });
+  }, [formState]);
 
   return (
     <div className="bg-zinc-950 w-5/6 md:w-auto border-zinc-300 border rounded-md p-12 flex flex-col items-center justify-center">

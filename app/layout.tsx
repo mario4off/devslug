@@ -37,17 +37,7 @@ export default function RootLayout({
               baseHue={120}
               className="min-h-screen  overflow-hidden  grid grid-rows-[auto_1fr_auto]"
             >
-              <Toaster
-                position="top-right"
-                offset={{ top: 100, right: 15 }}
-                options={{
-                  fill: "#1E293B",
-                  styles: {
-                    title: "text-white!",
-                    description: "text-white/75!",
-                  },
-                }}
-              />
+              <Toaster position="top-center" offset={{ top: 30 }} />
               <MainHeader />
               <main className="flex-1 my-2">{children}</main>
               <MainFooter />

@@ -22,7 +22,7 @@ export async function insertUrl(
     console.log("mierda");
     return {
       success: false,
-      message: "Validation error",
+      message: "Error de validación URL",
       ...prevState.data,
       errors: flattenedErrors.fieldErrors,
     };
