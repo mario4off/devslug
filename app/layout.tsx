@@ -5,6 +5,7 @@ import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
 import MainHeader from "@/components/main-header";
 import MainFooter from "@/components/main-footer";
+import { Toaster } from "sileo";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -36,6 +37,17 @@ export default function RootLayout({
               baseHue={120}
               className="min-h-screen  overflow-hidden  grid grid-rows-[auto_1fr_auto]"
             >
+              <Toaster
+                position="top-right"
+                offset={{ top: 100, right: 15 }}
+                options={{
+                  fill: "#1E293B",
+                  styles: {
+                    title: "text-white!",
+                    description: "text-white/75!",
+                  },
+                }}
+              />
               <MainHeader />
               <main className="flex-1 my-2">{children}</main>
               <MainFooter />

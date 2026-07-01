@@ -6,8 +6,9 @@ import PrimaryButton from "./ui/primary-button";
 import { actions } from "@/lib/actions";
 import { type UrlFormState } from "@/types/validations";
 import LinkSVG from "@/components/ui/icons/link";
-import FieldError from "./ui/field-error";
 import LeftIconInput from "./ui/left-icon-input";
+import { useEffect } from "react";
+import { sileo } from "sileo";
 
 export default function ShortenerGuest() {
   const INITIAL_STATE: UrlFormState = { data: { url: null, userId: null } };
@@ -16,6 +17,12 @@ export default function ShortenerGuest() {
     INITIAL_STATE,
   );
   const host = process.env.NEXT_PUBLIC_SITE_URL;
+
+  useEffect(() => {
+    if (formState.success) {
+      sileo.success({ title: "Changes saved" });
+    }
+  });
 
   return (
     <div className="bg-zinc-950 w-5/6 md:w-auto border-zinc-300 border rounded-md p-12 flex flex-col items-center justify-center">
