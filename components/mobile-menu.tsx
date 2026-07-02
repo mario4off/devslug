@@ -29,7 +29,7 @@ export default function MobileMenu({
       <path d="M21 18a1 1 0 0 1 -1 1h-16a1 1 0 0 1 0 -2h16a1 1 0 0 1 1 1" />
     </svg>
   ) : (
-    <div className="block md:hidden self-end">
+    <div className="block md:hidden">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <svg

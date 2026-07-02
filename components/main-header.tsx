@@ -19,7 +19,7 @@ export default async function MainHeader() {
   const isLogged = !!session;
 
   return (
-    <header className="w-full bg-gradient-to-b from-black flex items-center justify-center md:justify-between px-6 pt-3 shadow-2xl">
+    <header className="w-full bg-gradient-to-b from-black flex items-center justify-between px-6 pt-3 shadow-2xl">
       <Image
         src="/logo.svg"
         width={250}
