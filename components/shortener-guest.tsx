@@ -27,7 +27,7 @@ export default function ShortenerGuest() {
   }, [formState]);
 
   return (
-    <div className="bg-zinc-950 w-5/6 md:w-auto border-zinc-300 border rounded-md p-12 flex flex-col items-center justify-center">
+    <div className="bg-zinc-950 w-5/6 md:w-auto border-zinc-300 border rounded-md p-3 md:p-12  flex flex-col items-center justify-center">
       <h2 className="text-center text-base md:text-xl">
         Introduce tu URL y consigue una versión acortada
       </h2>
