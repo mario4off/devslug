@@ -1,8 +1,8 @@
-import ShortenerGuest from "./shortener-guest";
-import AuthButton from "./auth-button";
+import ShortenerGuest from "./shortenerGuest";
+import AuthButton from "./authButton";
 import { auth } from "@/auth";
-import SignInButton from "./sign-in-button";
-import SignOutButton from "./sign-out-button";
+import SignInButton from "./signInButton";
+import SignOutButton from "./signOutButton";
 
 async function Hero() {
   const session = await auth();

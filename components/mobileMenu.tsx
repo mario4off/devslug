@@ -6,8 +6,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import SignOutButton from "./sign-out-button";
+} from "@/components/ui/dropdowMenu";
+import SignOutButton from "./signOutButton";
 
 export default function MobileMenu({
   isLogged = false,

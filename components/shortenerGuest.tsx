@@ -1,12 +1,12 @@
 "use client";
 
 import { useActionState } from "react";
-import CopyButton from "./ui/copy-button";
-import PrimaryButton from "./ui/primary-button";
+import CopyButton from "./ui/copyButton";
+import PrimaryButton from "./ui/primaryButton";
 import { actions } from "@/lib/actions";
 import { type UrlFormState } from "@/types/validations";
 import LinkSVG from "@/components/ui/icons/link";
-import LeftIconInput from "./ui/left-icon-input";
+import LeftIconInput from "./ui/leftIconInput";
 import { useEffect } from "react";
 import { sileo } from "sileo";
 

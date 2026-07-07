@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import FieldError from "./field-error";
+import FieldError from "./fieldError";
 
 export default function LeftIconInput({
   icon,
