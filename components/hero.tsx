@@ -11,9 +11,9 @@ async function Hero() {
   const isLogged = !!session;
   return (
     <>
-      <header className="mt-0 md:mt-4 mx-10 flex flex-col items-center">
+      <header className="my-2 mb-6 mx-10 flex flex-col items-center">
         <h1
-          className={`${sora.className} text-center my-2 md:my-8 text-2xl md:text-6xl`}
+          className={`${sora.className} text-center my-3 md:my-8 text-3xl md:text-6xl`}
         >
           Acorta. Comparte. Analiza.
         </h1>
@@ -21,7 +21,7 @@ async function Hero() {
           Convierte enlaces largos en URLs inteligentes con estadísticas en
           tiempo real
         </p>
-        {!isLogged && <SignInButton className="block md:hidden mt-4 mb-3" />}
+        {!isLogged && <SignInButton className="block md:hidden mt-6 mb-3" />}
       </header>
 
       <section className="flex justify-center mt-5 md:mt-10">

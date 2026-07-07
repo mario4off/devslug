@@ -57,7 +57,7 @@ export default function ShortenerGuest() {
           disabled={!url.trim()}
         />
       </form>
-      <div className=" md:w-10/12 flex flex-col gap-5">
+      <div className=" mt-1 md:w-11/12 flex flex-col gap-5">
         <p className="text-center">
           ⏱️ La nueva URL tendrá una validez de 7 días.
         </p>

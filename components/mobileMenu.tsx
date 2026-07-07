@@ -20,7 +20,7 @@ export default function MobileMenu({
       width="35"
       height="35"
       viewBox="0 0 24 24"
-      fill="#1F2937"
+      fill="#475569"
       className="block md:hidden icon icon-tabler icons-tabler-filled icon-tabler-menu-2"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
