@@ -23,8 +23,6 @@ export default function ShortenerGuest() {
   useEffect(() => {
     if (formState.success) {
       sileo.success({ title: "URL acortada correctamente" });
-    } else if (formState.errors) {
-      sileo.error({ description: formState?.message });
     }
   }, [formState]);
 
