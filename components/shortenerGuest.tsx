@@ -7,7 +7,7 @@ import { actions } from "@/lib/actions";
 import { type UrlFormState } from "@/types/validations";
 import LinkSVG from "@/components/ui/icons/link";
 import LeftIconInput from "./ui/leftIconInput";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { sileo } from "sileo";
 
 export default function ShortenerGuest() {
@@ -17,6 +17,8 @@ export default function ShortenerGuest() {
     INITIAL_STATE,
   );
   const host = process.env.NEXT_PUBLIC_SITE_URL;
+
+  const [url, setUrl] = useState("");
 
   useEffect(() => {
     if (formState.success) {
@@ -38,6 +40,8 @@ export default function ShortenerGuest() {
         <LeftIconInput
           icon={<LinkSVG color="white" className="" />}
           error={formState.errors?.url}
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
         />
 
         <CopyButton
@@ -49,7 +53,11 @@ export default function ShortenerGuest() {
           }
           placeholder="Copia la nueva URL"
         />
-        <PrimaryButton type="submit" title={"Acortar URL"} />
+        <PrimaryButton
+          type="submit"
+          title={"Acortar URL"}
+          disabled={!url.trim()}
+        />
       </form>
       <div className=" md:w-10/12 flex flex-col gap-5">
         <p className="text-center">

@@ -4,9 +4,13 @@ import FieldError from "./fieldError";
 export default function LeftIconInput({
   icon,
   error,
+  value,
+  onChange,
 }: {
   icon: ReactNode;
   error?: string[];
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div className="w-full">
@@ -23,6 +27,8 @@ export default function LeftIconInput({
           name="url"
           id="url"
           placeholder="Pega aquí la URL"
+          value={value}
+          onChange={onChange}
         />
       </div>
       <div className="h-1">{error && <FieldError error={error} />}</div>
