@@ -4,7 +4,9 @@ import { urlFormSchema } from "@/validations/url";
 import { type UrlFormState } from "@/types/validations";
 import { z } from "zod";
 import prisma from "@/lib/db";
+import { extractMetaDataFromUrl } from "@/services/metada.service";
 import { generateSlug } from "../utils/url";
+import { createShortUrl } from "@/services/url.service";
 
 export async function insertUrl(
   prevState: UrlFormState,
@@ -13,7 +15,6 @@ export async function insertUrl(
   const guestUrl = {
     url: formdata.get("url") as string,
   };
-  const slug = generateSlug();
 
   const validatedSchema = urlFormSchema.safeParse(guestUrl);
 
@@ -28,12 +29,7 @@ export async function insertUrl(
     };
   }
 
-  const result = await prisma.url.create({
-    data: {
-      slug: slug,
-      originalUrl: validatedSchema.data.url,
-    },
-  });
+  const result = await createShortUrl(validatedSchema.data.url);
 
   return {
     success: true,
