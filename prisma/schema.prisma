@@ -70,8 +70,19 @@ model Url {
   id Int @id @default(autoincrement())
   slug String @unique
   originalUrl String
-    userId String?
+  userId String?
   user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
-  clickCount Int @default(0)
+  meta UrlMeta?
   createdAt DateTime @default(now())
+}
+
+model UrlMeta{
+  id Int @id @default(autoincrement())
+  urlId Int @unique
+  url Url @relation(fields: [urlId], references: [id], onDelete: Cascade)
+  title String?
+description String?
+image String?
+favicon String?
+createdAt DateTime @default(now())
 }
