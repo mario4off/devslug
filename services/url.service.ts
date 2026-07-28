@@ -18,12 +18,16 @@ export async function createShortUrl(originalUrl: string) {
 
   const metadata = await extractMetaDataFromUrl(originalUrl);
 
-  await prisma.urlMeta.create({
+  console.log("estos son los metadata2: ", metadata);
+
+  const result = await prisma.urlMeta.create({
     data: {
       urlId: url.id,
       ...metadata,
     },
   });
+
+  console.log("resultado: ", result);
 
   return url;
 }
