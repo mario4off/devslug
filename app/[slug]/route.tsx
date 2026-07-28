@@ -26,11 +26,12 @@ export async function GET(
 
     if (urlMetadata) {
       return new Response(generatePreview(urlMetadata), {
+        status: 200,
         headers: {
           "Content-Type": "text/html; charset=utf-8",
         },
       });
     }
   }
-  return Response.redirect(url.originalUrl);
+  return Response.redirect(url.originalUrl, 302);
 }
