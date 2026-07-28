@@ -1,6 +1,9 @@
 import { redirect } from "next/navigation";
 import prisma from "@/lib/db";
 import { findUrlBySlug } from "@/services/url.service";
+import { isBot } from "isbot";
+import { getMetadataByUrl } from "@/services/metada.service";
+import generatePreview from "@/lib/utils/generate-preview";
 
 export async function GET(
   request: Request,
@@ -8,13 +11,27 @@ export async function GET(
 ) {
   const { slug } = await params;
 
-  const url = await findUrlBySlug(slug);
+  const userAgent = request.headers.get("user-agent");
 
+  const url = await findUrlBySlug(slug);
   console.log(url);
 
   if (!url) {
     redirect("https://sport.es");
   }
 
-  redirect(url.originalUrl);
+  if (isBot(userAgent)) {
+    const urlMetadata = await getMetadataByUrl(url?.id);
+
+    if (urlMetadata) {
+      const html = generatePreview(urlMetadata);
+
+      return new Response(html, {
+        headers: {
+          "Content-Type": "text/html; charset=utf-8",
+        },
+      });
+    }
+  }
+  Response.redirect(url.originalUrl);
 }

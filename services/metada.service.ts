@@ -17,3 +17,11 @@ export async function extractMetaDataFromUrl(url: string) {
 
   return metadata;
 }
+
+export async function getMetadataByUrl(urlId: number) {
+  return await prisma.urlMeta.findUnique({
+    where: {
+      urlId: urlId,
+    },
+  });
+}
