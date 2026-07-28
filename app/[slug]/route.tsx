@@ -21,6 +21,7 @@ export async function GET(
   }
 
   if (isBot(userAgent)) {
+    console.log("Es un bot");
     const urlMetadata = await getMetadataByUrl(url?.id);
 
     if (urlMetadata) {
