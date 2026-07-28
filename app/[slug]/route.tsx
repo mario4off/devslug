@@ -28,7 +28,10 @@ export async function GET(
       return new Response(generatePreview(urlMetadata), {
         status: 200,
         headers: {
-          "Content-Type": "text/html; charset=utf-8",
+          "User-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
+          Accept:
+            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         },
       });
     }
