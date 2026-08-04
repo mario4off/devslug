@@ -5,7 +5,7 @@ export default function generatePreview(data: UrlMeta) {
     <!DOCTYPE html>
   <html>
     <head>
-         <title>${data.title}</title>
+         <title>${data.title ?? ""}</title>
         <meta property="og:title" content="${data.title ?? ""}">
         <meta property="og:description" content="${data.description ?? ""}">
         <meta property="og:image" content="${data.image ?? ""}">
