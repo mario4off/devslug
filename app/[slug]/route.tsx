@@ -1,4 +1,4 @@
-import { findUrlBySlug } from "@/services/url.service";
+import { isExpired, findUrlBySlug } from "@/services/url.service";
 import { isBot } from "isbot";
 import { getMetadataByUrl } from "@/services/metada.service";
 import generatePreview from "@/lib/utils/generate-preview";
@@ -11,16 +11,24 @@ export async function GET(
 
   const userAgent = request.headers.get("user-agent");
 
-  const url = await findUrlBySlug(slug);
-  console.log(url);
+  const result = await findUrlBySlug(slug);
+  console.log(result);
 
-  if (!url) {
-    return Response.redirect(new URL("/not-found", request.url));
+  if (!result) {
+    return Response.redirect(new URL(`/${slug}/not-found`, request.url));
+  }
+
+  const expired = isExpired(result);
+
+  if (expired) {
+    return Response.redirect(
+      new URL(`/${slug}/not-found?reason=expired`, request.url),
+    );
   }
 
   if (isBot(userAgent)) {
     console.log("Es un bot");
-    const urlMetadata = await getMetadataByUrl(url?.id);
+    const urlMetadata = await getMetadataByUrl(result?.id);
 
     if (urlMetadata) {
       return new Response(generatePreview(urlMetadata), {
@@ -31,5 +39,5 @@ export async function GET(
       });
     }
   }
-  return Response.redirect(url.originalUrl, 302);
+  return Response.redirect(result.originalUrl, 302);
 }
