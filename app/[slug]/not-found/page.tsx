@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { sora } from "@/components/ui/fonts";
+import NotFoundSection from "@/components/NotFoundSection";
 
 export default async function NotFound({
   searchParams,
@@ -17,16 +18,6 @@ export default async function NotFound({
       </section>
     );
   } else {
-    return (
-      <section className="flex flex-col items-center">
-        <h1 className={`${sora.className} `}>No encontramos este enlace</h1>
-        <Image
-          alt=""
-          width={500}
-          height={500}
-          src="/animations/404-animation.svg"
-        ></Image>
-      </section>
-    );
+    return <NotFoundSection />;
   }
 }
