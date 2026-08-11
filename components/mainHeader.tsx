@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { auth } from "@/auth";
-import SignInButton from "./signInButton";
-import SignOutButton from "./signOutButton";
-import MobileMenu from "./mobileMenu";
+import SignInButton from "./SignInButton";
+import SignOutButton from "./SignOutButton";
+import MobileMenu from "./MobileMenu";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +11,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdowMenu";
+} from "@/components/ui/DropdowMenu";
 
 export default async function MainHeader() {
   const session = await auth();

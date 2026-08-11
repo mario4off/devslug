@@ -1,8 +1,6 @@
-import ShortenerGuest from "./shortenerGuest";
-import AuthButton from "./authButton";
+import ShortenerGuest from "./ShortenerGuest";
 import { auth } from "@/auth";
-import SignInButton from "./signInButton";
-import SignOutButton from "./signOutButton";
+import SignInButton from "./SignInButton";
 import { sora } from "./ui/fonts";
 
 async function Hero() {

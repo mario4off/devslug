@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { sora } from "@/components/ui/fonts";
+
 export default async function NotFound({
   searchParams,
 }: {
@@ -10,13 +13,19 @@ export default async function NotFound({
   if (reason === "expired") {
     return (
       <section>
-        <h1>La URL ha caducado</h1>
+        <h1 className={`${sora.className} `}>La URL ha caducado</h1>
       </section>
     );
   } else {
     return (
-      <section>
-        <h1>La URL no existe</h1>
+      <section className="flex flex-col items-center">
+        <h1 className={`${sora.className} `}>No encontramos este enlace</h1>
+        <Image
+          alt=""
+          width={500}
+          height={500}
+          src="/animations/404-animation.svg"
+        ></Image>
       </section>
     );
   }

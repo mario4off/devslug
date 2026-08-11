@@ -3,8 +3,8 @@ import { poppins } from "@/components/ui/fonts";
 import "./globals.css";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
-import MainHeader from "@/components/mainHeader";
-import MainFooter from "@/components/mainFooter";
+import MainHeader from "@/components/MainHeader";
+import MainFooter from "@/components/MainFooter";
 import { Toaster } from "sileo";
 
 const defaultUrl = process.env.VERCEL_URL
