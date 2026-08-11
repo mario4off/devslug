@@ -33,7 +33,7 @@ export default function ShortenerGuest() {
       </h2>
       <form
         action={formAction}
-        className=" w-5/6 flex flex-col gap-6 md:gap-10 justify-center items-center my-5 md:my-10"
+        className=" w-5/6 flex flex-col gap-7 md:gap-10 justify-center items-center my-5 md:my-10"
       >
         <LeftIconInput
           icon={<LinkSVG color="white" className="" />}
@@ -57,7 +57,7 @@ export default function ShortenerGuest() {
           disabled={!url.trim()}
         />
       </form>
-      <div className=" mt-1 md:w-11/12 flex flex-col gap-5">
+      <div className=" mt-1 md:w-11/12 flex flex-col gap-6">
         <p className="text-center">
           ⏱️ La nueva URL tendrá una validez de 7 días.
         </p>
