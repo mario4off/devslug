@@ -1,6 +1,7 @@
-import Image from "next/image";
+import { ExpiredSlugHeader } from "@/components/ExpiredSlugHeader";
+import { NotFoundFooter } from "@/components/NotFoundFooter";
+import NotFoundHeader from "@/components/NotFoundHeader";
 import { sora } from "@/components/ui/fonts";
-import NotFoundSection from "@/components/NotFoundSection";
 
 export default async function NotFound({
   searchParams,
@@ -11,13 +12,24 @@ export default async function NotFound({
 
   console.log("Esta es la razon del not-found: ", reason);
 
+  let headerContent!: React.ReactNode;
+
   if (reason === "expired") {
-    return (
-      <section>
-        <h1 className={`${sora.className} `}>La URL ha caducado</h1>
-      </section>
-    );
+    headerContent = <ExpiredSlugHeader />;
   } else {
-    return <NotFoundSection />;
+    headerContent = <NotFoundHeader />;
   }
+
+  return (
+    <section>
+      <header className="flex flex-col items-center">
+        <h1 className={`${sora.className} text-center`}>
+          No encontramos este enlace
+        </h1>{" "}
+        {headerContent}
+      </header>
+
+      <NotFoundFooter />
+    </section>
+  );
 }
