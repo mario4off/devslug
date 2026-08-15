@@ -2,10 +2,11 @@ import Link from "next/link";
 import { sora } from "./ui/fonts";
 import Image from "next/image";
 import PrimaryButton from "./ui/PrimaryButton";
+import { NotFoundAction } from "./NotFoundAction";
 
 export default function NotFoundSection() {
   return (
-    <section className=" mt-5 w-5/6 ">
+    <section className=" mt-5 px-5">
       <header className="flex flex-col items-center">
         <h1 className={`${sora.className} text-center`}>
           No encontramos este enlace
@@ -20,11 +21,8 @@ export default function NotFoundSection() {
           src="/animations/404-animation.svg"
         ></Image>
       </header>
-      <footer className=" flex mt-8 flex-col items-center gap-8">
-        <h2 className="text-center ">Acorta una nueva URL en dos clics</h2>
-        <Link href="/">
-          <PrimaryButton title="Acortar nueva URL" disabled={false} />
-        </Link>
+      <footer className=" flex mt-5 flex-col items-center gap-8">
+        <NotFoundAction />
       </footer>
     </section>
   );
