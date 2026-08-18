@@ -135,6 +135,9 @@ importers:
       jest-environment-jsdom:
         specifier: ^30.4.1
         version: 30.4.1
+      jest-mock-extended:
+        specifier: 2.0.4
+        version: 2.0.4(jest@30.4.2(@types/node@20.19.43)(ts-node@10.9.2(@types/node@20.19.43)(typescript@5.9.3)))(typescript@5.9.3)
       node:
         specifier: ^24.12.0
         version: 24.18.0
@@ -3174,6 +3177,12 @@ packages:
     resolution: {integrity: sha512-kwCKIvq0MCW1HzLoGola9Te6JUdzgV0loyKJ3Qghrkz9i5/RRIHsL95BMQc2HBBhlBKC4j22K9p11TGHH8RBpQ==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
 
+  jest-mock-extended@2.0.4:
+    resolution: {integrity: sha512-MgL3B3GjURQFjjPGqbCANydA5BFNPygv0mYp4Tjfxohh9MWwxxX8Eq2p6ncCt/Vt+RAnaLlDaI7gwrDRD7Pt9A==}
+    peerDependencies:
+      jest: ^24.0.0 || ^25.0.0 || ^26.0.0 || ^27.0.0
+      typescript: ^3.0.0 || ^4.0.0
+
   jest-mock@30.4.1:
     resolution: {integrity: sha512-/i8SVb8/NSB7RfNi8gfqu8gxLV23KaL5EpAttyb9iz8qWRIqXRLflycz/32wXsYkOnaUlx8NAKnJYtpsmXUmfw==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
@@ -4287,6 +4296,11 @@ packages:
     engines: {node: '>=18.12'}
     peerDependencies:
       typescript: '>=4.8.4'
+
+  ts-essentials@7.0.3:
+    resolution: {integrity: sha512-8+gr5+lqO3G84KdiTSMRLtuyJ+nTBVRKuCrK4lidMPdVeEp0uqC875uE5NMcaA7YYMN7XsNiFQuMvasF8HT/xQ==}
+    peerDependencies:
+      typescript: '>=3.7.0'
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
@@ -7860,6 +7874,12 @@ snapshots:
       slash: 3.0.0
       stack-utils: 2.0.6
 
+  jest-mock-extended@2.0.4(jest@30.4.2(@types/node@20.19.43)(ts-node@10.9.2(@types/node@20.19.43)(typescript@5.9.3)))(typescript@5.9.3):
+    dependencies:
+      jest: 30.4.2(@types/node@20.19.43)(ts-node@10.9.2(@types/node@20.19.43)(typescript@5.9.3))
+      ts-essentials: 7.0.3(typescript@5.9.3)
+      typescript: 5.9.3
+
   jest-mock@30.4.1:
     dependencies:
       '@jest/types': 30.4.1
@@ -9095,6 +9115,10 @@ snapshots:
       punycode: 2.3.1
 
   ts-api-utils@2.5.0(typescript@5.9.3):
+    dependencies:
+      typescript: 5.9.3
+
+  ts-essentials@7.0.3(typescript@5.9.3):
     dependencies:
       typescript: 5.9.3
 
