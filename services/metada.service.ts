@@ -1,10 +1,18 @@
-import { log } from "console";
 import * as cheerio from "cheerio";
-import { Url } from "@/lib/generated/prisma/client";
 import prisma from "@/lib/db";
 
 export async function extractMetaDataFromUrl(url: string) {
-  const html = await fetch(url).then((r) => r.text());
+  const response = await fetch(url);
+
+  console.log("STATUS:", response.status);
+  console.log("OK:", response.ok);
+  console.log("URL:", response.url);
+  console.log("CONTENT-TYPE:", response.headers.get("content-type"));
+
+  const html = await response.text();
+
+  console.log("HTML LENGTH:", html.length);
+  console.log("HTML START:", html.slice(0, 500));
 
   const $ = cheerio.load(html);
 
