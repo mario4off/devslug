@@ -23,7 +23,7 @@ export async function extractMetaDataFromUrl(url: string) {
     favicon: $('link[rel="icon"]').attr("href") ?? null,
   };
 
-  console.log("estos son los metadata: ", metadata);
+  console.log("estos son los metadata4534: ", metadata);
   return metadata;
 }
 
