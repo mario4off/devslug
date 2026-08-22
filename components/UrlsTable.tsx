@@ -17,6 +17,7 @@ import {
   rowPaginationFeature,
   createPaginatedRowModel,
 } from "@tanstack/react-table";
+import { use } from "react";
 
 const features = tableFeatures({
   rowPaginationFeature,
@@ -38,7 +39,12 @@ const columns = [
   },
 ];
 
-export default function UrlsTable({ urls }: { urls: Url[] }) {
+export default function UrlsTable({
+  urlsPromise,
+}: {
+  urlsPromise: Promise<Url[]>;
+}) {
+  const urls = use(urlsPromise);
   const table = useTable({
     features,
     columns,
