@@ -39,7 +39,7 @@ export default function RootLayout({
             >
               <Toaster position="top-center" offset={{ top: 30 }} />
               <MainHeader />
-              <main className="flex flex-col my-2 w-full mx-auto px-4 sm:px-6 py-2">
+              <main className="flex flex-col my-2 w-full mx-auto px-6 sm:px-6 py-2">
                 {children}
               </main>
               <MainFooter />

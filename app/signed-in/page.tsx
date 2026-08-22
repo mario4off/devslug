@@ -13,7 +13,7 @@ export default async function SignInPage() {
   }
   const userId = session?.user?.id;
   const urlsPromise = (async () => {
-    await new Promise((resolve) => setTimeout(resolve, 10_000));
+    await new Promise((resolve) => setTimeout(resolve, 5_000));
 
     return getUrlsByUserId(userId);
   })();
