@@ -51,13 +51,14 @@ export default function UrlsTable({ urls }: { urls: Url[] }) {
       },
     },
   });
+
   return (
     <Table>
       <TableHeader>
         {table.getHeaderGroups().map((group) => (
-          <TableRow className="text-white font-bold" key={group.id}>
+          <TableRow key={group.id}>
             {group.headers.map((header) => (
-              <TableHead key={header.id}>
+              <TableHead className="text-white font-extrabold" key={header.id}>
                 {header.isPlaceholder ? null : (
                   <table.FlexRender header={header} />
                 )}

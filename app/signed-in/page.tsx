@@ -29,9 +29,7 @@ export default async function SignInPage() {
       </header>
       <div className="my-12">
         <h2>Mis URLs</h2>
-        <Suspense fallback="">
-          <UrlsTable urls={urls} />
-        </Suspense>
+        <UrlsTable urls={urls} />
       </div>
     </section>
   );
