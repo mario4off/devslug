@@ -2,7 +2,6 @@ import Image from "next/image";
 import { auth } from "@/auth";
 import SignInButton from "./SignInButton";
 import SignOutButton from "./SignOutButton";
-import MobileMenu from "./MobileMenu";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,26 +30,8 @@ export default async function MainHeader() {
       {!isLogged ? (
         <SignInButton className="hidden md:flex" />
       ) : (
-        <>
-          <div className="hidden md:block border border-slate-700 p-2  rounded-md transition duration-300 hover:border-slate-400 ">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuGroup>
-                  <DropdownMenuItem>Perfil</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <SignOutButton className="" />
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        </>
+        <SignOutButton className="" />
       )}
-      <MobileMenu isLogged={isLogged} />
     </header>
   );
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function SignInButton({ className }: { className: string }) {
   return (
     <button
-      onClick={() => signIn("google", { redirectTo: "/profile" })}
+      onClick={() => signIn("google", { redirectTo: "/sign-in" })}
       className={`${className}  bg-white border rounded-md flex items-center gap-4 p-2 transform hover:scale-105 transition duration-300 ease-in-out`}
       type="button"
     >
