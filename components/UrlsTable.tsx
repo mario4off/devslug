@@ -59,15 +59,15 @@ export default function UrlsTable({
   });
 
   return (
-    <div className="bg-zinc-950 md:w-auto border-zinc-300 border rounded-md p-8  ">
+    <div className="bg-zinc-950 md:w-auto border-zinc-800 border rounded-md p-8  ">
       <h2>Mis URLs</h2>
-      <Table>
+      <Table className="mt-5">
         <TableHeader>
           {table.getHeaderGroups().map((group) => (
             <TableRow key={group.id}>
               {group.headers.map((header) => (
                 <TableHead
-                  className="text-white font-extrabold"
+                  className="bg-white/5 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-zinc-400"
                   key={header.id}
                 >
                   {header.isPlaceholder ? null : (
@@ -83,10 +83,18 @@ export default function UrlsTable({
             const url = row.original;
 
             return (
-              <TableRow key={url.id}>
-                <TableCell className="text-white">{url.originalUrl}</TableCell>
-                <TableCell className="text-white">{url.slug}</TableCell>
-                <TableCell className="text-white">
+              <TableRow className="h-12 border-white/10" key={url.id}>
+                <TableCell className="max-w-[250px] px-4 py-3 text-zinc-300">
+                  <p className="truncate" title={url.originalUrl}>
+                    {url.originalUrl}
+                  </p>
+                </TableCell>
+                <TableCell className="px-4 py-3">
+                  <code className="rounded bg-teal-500/10 px-2 py-1 text-sm text-teal-400">
+                    {url.slug}
+                  </code>
+                </TableCell>
+                <TableCell className="px-4 py-3 text-zinc-400">
                   {url.createdAt.toLocaleDateString("es-ES")}
                 </TableCell>
               </TableRow>
@@ -94,17 +102,18 @@ export default function UrlsTable({
           })}
         </TableBody>
       </Table>
-      <div className="px-8 mt-8 flex flex-col items-center justify-between ">
+      <div className="px-8 mt-6 flex flex-col items-center justify-between ">
         <div className="flex gap-12">
           <button
-            className="text-white disabled:opacity-60"
+            className="text-white disabled:opacity-40"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
             Anterior
           </button>
-          <p>
-            {table.state.pagination.pageIndex + 1} de {table.getPageCount()}
+          <p className="text-zinc-400">
+            Página {table.state.pagination.pageIndex + 1} de{" "}
+            {table.getPageCount()}
           </p>
           <button
             className="text-white disabled:opacity-40"
