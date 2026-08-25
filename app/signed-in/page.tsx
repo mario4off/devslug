@@ -1,27 +1,22 @@
-import { auth } from "@/auth";
 import { SkeletonUrlsTable } from "@/components/SkeletonUrlsTable";
 import UrlsTable from "@/components/UrlsTable";
+import { verifySession } from "@/lib/dal";
 import { getUrlsByUserId } from "@/repositories/url.repository";
-import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
 export default async function SignInPage() {
-  const session = await auth();
+  const user = await verifySession();
 
-  if (!session?.user?.id) {
-    redirect("/sign-in");
-  }
-  const userId = session?.user?.id;
   const urlsPromise = (async () => {
     await new Promise((resolve) => setTimeout(resolve, 5_000));
 
-    return getUrlsByUserId(userId);
+    return getUrlsByUserId(user?.id);
   })();
 
   return (
     <section className="mx-2">
       <header>
-        <h1>Hola, {session?.user?.name}</h1>
+        <h1>Hola, {user.name}</h1>
       </header>
       <div className="my-12">
         <h2>Mis URLs</h2>
