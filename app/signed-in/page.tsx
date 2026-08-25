@@ -8,7 +8,7 @@ export default async function SignInPage() {
   const user = await verifySession();
 
   const urlsPromise = (async () => {
-    await new Promise((resolve) => setTimeout(resolve, 5_000));
+    await new Promise((resolve) => setTimeout(resolve, 1_000));
 
     return getUrlsByUserId(user?.id);
   })();
@@ -19,7 +19,6 @@ export default async function SignInPage() {
         <h1>Hola, {user.name}</h1>
       </header>
       <div className="my-12">
-        <h2>Mis URLs</h2>
         <Suspense fallback={<SkeletonUrlsTable />}>
           <UrlsTable urlsPromise={urlsPromise} />
         </Suspense>
