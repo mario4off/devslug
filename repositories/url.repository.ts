@@ -8,3 +8,9 @@ export async function createUrl(originalUrl: string, slug: string) {
     },
   });
 }
+
+export async function getUrlsByUserId(userId: string) {
+  return await prisma.url.findMany({
+    where: { userId },
+  });
+}

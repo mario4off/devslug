@@ -1,6 +1,6 @@
 import { isExpired, findUrlBySlug } from "@/services/url.service";
 import { isBot } from "isbot";
-import { getMetadataByUrl } from "@/services/metada.service";
+import { getMetadataByUrl } from "@/repositories/metadata.repository";
 import generatePreview from "@/lib/utils/generate-preview";
 
 export async function GET(

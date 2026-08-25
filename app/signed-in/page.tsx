@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import { SkeletonUrlsTable } from "@/components/SkeletonUrlsTable";
 import UrlsTable from "@/components/UrlsTable";
-import { getUrlsByUserId } from "@/services/url.service";
+import { getUrlsByUserId } from "@/repositories/url.repository";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 

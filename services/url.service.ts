@@ -31,9 +31,3 @@ export function isExpired(url: Url): boolean {
 
   return url.createdAt < sevenDaysAgo;
 }
-
-export async function getUrlsByUserId(userId: string) {
-  return await prisma.url.findMany({
-    where: { userId },
-  });
-}

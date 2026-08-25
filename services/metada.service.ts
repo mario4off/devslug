@@ -16,11 +16,3 @@ export async function extractMetaDataFromUrl(url: string) {
   console.log("estos son los metadata: ", metadata);
   return metadata;
 }
-
-export async function getMetadataByUrl(urlId: number) {
-  return await prisma.urlMeta.findUnique({
-    where: {
-      urlId: urlId,
-    },
-  });
-}
