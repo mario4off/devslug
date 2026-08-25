@@ -5,10 +5,6 @@ import { Url } from "@/lib/generated/prisma/client";
 import { createUrl } from "@/repositories/url.repository";
 import { createUrlMeta } from "@/repositories/metadata.repository";
 
-export async function findUrlBySlug(slug: string) {
-  return await prisma.url.findFirst({ where: { slug: slug } });
-}
-
 export async function createShortUrl(originalUrl: string) {
   const slug = generateSlug();
 

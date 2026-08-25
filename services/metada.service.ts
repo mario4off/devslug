@@ -1,5 +1,4 @@
 import * as cheerio from "cheerio";
-import prisma from "@/lib/db";
 
 export async function extractMetaDataFromUrl(url: string) {
   const html = await fetch(url).then((r) => r.text());

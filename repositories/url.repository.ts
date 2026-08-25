@@ -14,3 +14,7 @@ export async function getUrlsByUserId(userId: string) {
     where: { userId },
   });
 }
+
+export async function findUrlBySlug(slug: string) {
+  return await prisma.url.findFirst({ where: { slug: slug } });
+}

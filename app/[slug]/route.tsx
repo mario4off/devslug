@@ -1,5 +1,6 @@
-import { isExpired, findUrlBySlug } from "@/services/url.service";
+import { isExpired } from "@/services/url.service";
 import { isBot } from "isbot";
+import { findUrlBySlug } from "@/repositories/url.repository";
 import { getMetadataByUrl } from "@/repositories/metadata.repository";
 import generatePreview from "@/lib/utils/generate-preview";
 

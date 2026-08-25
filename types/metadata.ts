@@ -1,4 +1,4 @@
-type CreateMetadataInpur = {
+type CreateMetadataInput = {
   urlId: number;
   title: string | null;
   description: string | null;

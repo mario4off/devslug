@@ -1,6 +1,6 @@
 import prisma from "@/lib/db";
 
-export async function createUrlMeta(data: CreateMetadataInpur) {
+export async function createUrlMeta(data: CreateMetadataInput) {
   return await prisma.urlMeta.create({
     data: {
       ...data,
