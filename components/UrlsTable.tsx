@@ -158,43 +158,41 @@ export default function UrlsTable({
           )}
         </TableBody>
       </Table>
-      <div className="px-8 mt-7 flex justify-center ">
-        <div className="flex gap-12 items-center">
-          <button
-            className="flex items-center ga-2 disabled:opacity-40"
-            onClick={() => table.firstPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            <ChevronsLeft color="#ffff" />
-            <span className=" sr-only">Ir a la primera página</span>
-          </button>
-          <button
-            className="text-white disabled:opacity-40"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            Anterior
-          </button>
-          <p className="text-zinc-400">
-            Página {table.state.pagination.pageIndex + 1} de{" "}
-            {table.getPageCount()}
-          </p>
-          <button
-            className="text-white disabled:opacity-40"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            Siguiente
-          </button>
-          <button
-            className=" flex items-center gap-2 disabled:opacity-40"
-            onClick={() => table.lastPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            <span className="sr-only">Ir a la última página</span>
-            <ChevronsRight color="#ffff" />
-          </button>
-        </div>
+      <div className="px-8 mt-7 flex gap-6 justify-center text-sm md:text-base">
+        <button
+          className="flex items-center ga-2 disabled:opacity-40"
+          onClick={() => table.firstPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          <ChevronsLeft color="#ffff" />
+          <span className=" sr-only">Ir a la primera página</span>
+        </button>
+        <button
+          className="text-white disabled:opacity-40"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Anterior
+        </button>
+        <p className="text-zinc-400">
+          Página {table.state.pagination.pageIndex + 1} de{" "}
+          {table.getPageCount()}
+        </p>
+        <button
+          className="text-white disabled:opacity-40"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Siguiente
+        </button>
+        <button
+          className=" flex items-center gap-2 disabled:opacity-40"
+          onClick={() => table.lastPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          <span className="sr-only">Ir a la última página</span>
+          <ChevronsRight color="#ffff" />
+        </button>
       </div>
     </div>
   );

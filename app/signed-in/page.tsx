@@ -14,11 +14,11 @@ export default async function SignInPage() {
   })();
 
   return (
-    <section className="mx-2">
+    <section className="mx-2 mt-2">
       <header>
-        <h1>Hola, {user.name}</h1>
+        <h1 className="text-2xl md:text-4xl">Hola, {user.name}</h1>
       </header>
-      <div className="my-12">
+      <div className="my-8">
         <Suspense fallback={<SkeletonUrlsTable />}>
           <UrlsTable urlsPromise={urlsPromise} />
         </Suspense>

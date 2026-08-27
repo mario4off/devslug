@@ -24,6 +24,7 @@ export default async function MainHeader() {
         width={250}
         height={95}
         loading="eager"
+        className="h-auto w-[180px] sm:w-[250px]"
         alt="Logo devslug"
       />
 
