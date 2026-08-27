@@ -98,7 +98,7 @@ export default function UrlsTable({
   return (
     <div className="bg-zinc-950  border-zinc-800 border rounded-md p-8  ">
       <h2>Mis URLs</h2>
-      <Table className="mt-5 min-w-[650px]">
+      <Table className="mt-5">
         <TableHeader>
           {table.getHeaderGroups().map((group) => (
             <TableRow key={group.id}>
