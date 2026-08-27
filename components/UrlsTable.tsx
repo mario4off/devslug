@@ -98,6 +98,9 @@ export default function UrlsTable({
   return (
     <div className="bg-zinc-950  border-zinc-800 border rounded-md p-8  ">
       <h2>Mis URLs</h2>
+      <p className=" text-xs text-zinc-400 sm:hidden">
+        Desliza la tabla para ver más →
+      </p>
       <Table className="mt-5">
         <TableHeader>
           {table.getHeaderGroups().map((group) => (
