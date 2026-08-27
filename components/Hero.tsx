@@ -2,11 +2,17 @@ import ShortenerGuest from "./ShortenerGuest";
 import { auth } from "@/auth";
 import SignInButton from "./SignInButton";
 import { sora } from "./ui/fonts";
+import { redirect } from "next/navigation";
 
 async function Hero() {
   const session = await auth();
 
   const isLogged = !!session;
+
+  if (isLogged) {
+    redirect("/signed-in");
+  }
+
   return (
     <>
       <header className="my-2 mb-6 mx-10 flex flex-col items-center">
