@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import MainHeader from "@/components/MainHeader";
 import MainFooter from "@/components/MainFooter";
 import { Toaster } from "sileo";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -37,12 +38,14 @@ export default function RootLayout({
               baseHue={120}
               className="min-h-screen  overflow-hidden  grid grid-rows-[auto_1fr_auto]"
             >
-              <Toaster position="top-center" offset={{ top: 30 }} />
-              <MainHeader />
-              <main className="flex flex-col my-2 min-w-0 w-full mx-auto px-6 sm:px-6 py-2">
-                {children}
-              </main>
-              <MainFooter />
+              <TooltipProvider>
+                <Toaster position="top-center" offset={{ top: 30 }} />
+                <MainHeader />
+                <main className="flex flex-col my-2 min-w-0 w-full mx-auto px-6 sm:px-6 py-2">
+                  {children}
+                </main>
+                <MainFooter />
+              </TooltipProvider>
             </Vortex>
           </Suspense>
         </body>

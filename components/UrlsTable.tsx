@@ -1,5 +1,9 @@
 "use client";
-
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
   Table,
   TableBody,
@@ -50,28 +54,35 @@ const columns = columnHelper.columns([
   columnHelper.accessor("originalUrl", {
     header: "URL Original",
     cell: (info) => (
-      <p className="truncate" title={info.getValue()}>
-        {info.getValue()}
-      </p>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <p className="truncate text-zinc-300" title={info.getValue()}>
+            {info.getValue()}
+          </p>
+        </TooltipTrigger>
+        <TooltipContent className="bg-zinc-900 px-3 py-2 border rounded-md  border-zinc-800">
+          <p title={info.getValue()}>{info.getValue()}</p>
+        </TooltipContent>
+      </Tooltip>
     ),
   }),
   columnHelper.accessor("slug", {
     header: "Slug",
     cell: (info) => (
-      <p
+      <code
         className="rounded bg-teal-500/10 w-fit px-2 py-1 text-sm text-teal-400"
         title={info.getValue()}
       >
         {info.getValue()}
-      </p>
+      </code>
     ),
   }),
   columnHelper.accessor("createdAt", {
     header: "Fecha de Creación",
     cell: (info) => (
-      <code className=" px-2 py-1 text-sm">
+      <p className=" px-2 py-1 text-sm text-zinc-300">
         {info.getValue().toLocaleDateString("es-ES")}
-      </code>
+      </p>
     ),
   }),
 ]);
