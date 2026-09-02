@@ -1,4 +1,4 @@
-export default function Copy({
+export default function Link({
   color = "currentColor",
   className,
 }: {

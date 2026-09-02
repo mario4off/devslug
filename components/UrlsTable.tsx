@@ -114,8 +114,8 @@ export default function UrlsTable({
   });
 
   return (
-    <div className="bg-zinc-950  border-zinc-800 border rounded-md p-8  ">
-      <div className="flex justify-between">
+    <div className="bg-zinc-950  border-zinc-800 border rounded-md p-6 px-8  ">
+      <div className="flex flex-col gap-3 sm:flex-row justify-between">
         <h2 className="text-4xl font-semibold">Mis URLs</h2>
         <p className=" text-xs text-zinc-400 sm:hidden">
           Desliza la tabla para ver más →
@@ -124,6 +124,7 @@ export default function UrlsTable({
           <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500"></Search>
           <input
             value={table.state.globalFilter ?? ""}
+            type="search"
             className="px-10 p-2 rounded-md border border-zinc-800 text-white
         bg-zinc-950  outline-none      "
             onChange={(e) => table.setGlobalFilter(String(e.target.value))}
