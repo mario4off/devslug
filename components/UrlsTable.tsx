@@ -26,6 +26,18 @@ import {
 } from "lucide-react";
 
 import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
+import {
   rowSortingFeature,
   createSortedRowModel,
   sortFn_alphanumeric,
@@ -45,6 +57,7 @@ import { use, useState } from "react";
 import Image from "next/image";
 import { actions } from "@/lib/actions";
 import { useRouter } from "next/navigation";
+import { Button } from "./ui/button";
 
 const features = tableFeatures({
   rowSortingFeature,
@@ -109,18 +122,38 @@ export default function UrlsTable({
       id: "actions",
       size: 25,
       cell: ({ row }) => (
-        <button
-          className="rounded-md transition-colors hover:bg-zinc-900 p-2"
-          onClick={async () => handleDelete(row.original.id)}
-        >
-          <Image
-            className="min-w-5 "
-            src="/icons/delete.svg"
-            height={20}
-            width={20}
-            alt="delete"
-          />
-        </button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <button
+              type="button"
+              className="rounded-md transition-colors hover:bg-zinc-900 p-2"
+            >
+              <Image
+                className="min-w-5 "
+                src="/icons/delete.svg"
+                height={20}
+                width={20}
+                alt="delete"
+              />
+            </button>
+          </AlertDialogTrigger>
+          <AlertDialogContent className="bg-zinc-950 border-zinc-800">
+            <AlertDialogHeader>
+              <AlertDialogTitle>¿Eliminar esta URL?</AlertDialogTitle>
+              <AlertDialogDescription>
+                Esta acción no se puede deshacer.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancelar</AlertDialogCancel>
+              <AlertDialogAction
+                onClick={async () => handleDelete(row.original.id)}
+              >
+                Continuar
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       ),
     }),
   ]);
