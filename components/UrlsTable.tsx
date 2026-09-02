@@ -155,7 +155,7 @@ export default function UrlsTable({
           <input
             value={table.state.globalFilter ?? ""}
             type="search"
-            className="px-10 p-2 rounded-md border border-zinc-800 text-white
+            className="px-10 p-2 rounded-md border border-zinc-800 text-white w-auto
         bg-zinc-950  outline-none      "
             onChange={(e) => table.setGlobalFilter(String(e.target.value))}
             placeholder="Buscar..."
