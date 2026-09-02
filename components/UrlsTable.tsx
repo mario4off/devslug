@@ -184,7 +184,7 @@ export default function UrlsTable({
 
                 return (
                   <TableHead
-                    className="bg-white/5 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-zinc-400"
+                    className="bg-white/5 px-4 py-3 text-xs font-semibold uppercase -wide text-zinc-400"
                     key={header.id}
                   >
                     {header.isPlaceholder ? null : (
