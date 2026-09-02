@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/DropdowMenu";
 import Link from "next/link";
+import NavLink from "./ui/NavLink";
 
 export default async function MainHeader() {
   const session = await auth();
@@ -30,12 +31,20 @@ export default async function MainHeader() {
           alt="Logo devslug"
         />
       </Link>
-
-      {!isLogged ? (
-        <SignInButton className="hidden md:flex" />
-      ) : (
-        <SignOutButton className="" />
-      )}
+      <div className="flex gap-4 items-center">
+        <nav>
+          <ul className="list-none">
+            <li>
+              <NavLink text="Mis Enlaces"></NavLink>
+            </li>
+          </ul>
+        </nav>
+        {!isLogged ? (
+          <SignInButton className="hidden md:flex" />
+        ) : (
+          <SignOutButton className="" />
+        )}
+      </div>
     </header>
   );
 }
