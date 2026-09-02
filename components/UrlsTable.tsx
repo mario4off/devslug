@@ -156,13 +156,16 @@ export default function UrlsTable({
         <p className=" text-xs text-zinc-400 sm:hidden">
           Desliza la tabla para ver más →
         </p>
-        <div className="relative ">
+        <div className="relative w-full sm:w-auto">
           <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500"></Search>
           <input
             value={table.state.globalFilter ?? ""}
             type="search"
-            className="px-10 p-2 rounded-md border border-zinc-800 text-white w-auto
-        bg-zinc-950  outline-none      "
+            className={`w-full sm-auto px-10 p-2 rounded-md border bg-zinc-950 text-white outline-none transition-colors ${
+              table.state.globalFilter
+                ? "border-zinc-200"
+                : "border-zinc-800 hover:border-zinc-200"
+            }`}
             onChange={(e) => table.setGlobalFilter(String(e.target.value))}
             placeholder="Buscar..."
           />
@@ -217,7 +220,7 @@ export default function UrlsTable({
                 {row.getAllCells().map((cell) => (
                   <TableCell
                     style={{ width: `${cell.column.getSize()}px` }}
-                    className="max-w-[700px] px-4 py-3 text-zinc-300"
+                    className="max-w-[300px] md:max-w-[700px] px-4 py-3 text-zinc-300"
                     key={cell.id}
                   >
                     <table.FlexRender cell={cell} />
