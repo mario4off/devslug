@@ -36,6 +36,7 @@ import {
   createPaginatedRowModel,
   createColumnHelper,
   columnFilteringFeature,
+  columnSizingFeature,
   globalFilteringFeature,
   createFilteredRowModel,
   filterFn_includesString,
@@ -50,6 +51,7 @@ const features = tableFeatures({
   rowPaginationFeature,
   columnFilteringFeature,
   globalFilteringFeature,
+  columnSizingFeature,
   filteredRowModel: createFilteredRowModel(),
   sortedRowModel: createSortedRowModel(),
   paginatedRowModel: createPaginatedRowModel(),
@@ -70,6 +72,7 @@ export default function UrlsTable({
   const columns = columnHelper.columns([
     columnHelper.accessor("originalUrl", {
       header: "URL Original",
+      size: 10,
       cell: (info) => (
         <Tooltip>
           <TooltipTrigger asChild>
@@ -85,6 +88,7 @@ export default function UrlsTable({
     }),
     columnHelper.accessor("slug", {
       header: "Slug",
+      size: 80,
       cell: (info) => (
         <code
           className="rounded bg-teal-500/10 w-fit px-2 py-1 text-sm text-teal-400"
@@ -96,12 +100,14 @@ export default function UrlsTable({
     }),
     columnHelper.accessor((row) => row.createdAt.toLocaleDateString("es-ES"), {
       header: "Fecha de Creación",
+      size: 80,
       cell: (info) => (
         <p className=" px-2 py-1 text-sm text-zinc-300">{info.getValue()}</p>
       ),
     }),
     columnHelper.display({
       id: "actions",
+      size: 25,
       cell: ({ row }) => (
         <button
           className="rounded-md transition-colors hover:bg-zinc-900 p-2"
@@ -189,7 +195,7 @@ export default function UrlsTable({
                       >
                         <table.FlexRender header={header} />
 
-                        {canSort && <SortIcon />}
+                        {canSort && <SortIcon className="shrink-0" />}
                       </button>
                     )}
                   </TableHead>
@@ -207,10 +213,11 @@ export default function UrlsTable({
             </TableRow>
           ) : (
             table.getRowModel().rows.map((row) => (
-              <TableRow className="h-12    border-white/10" key={row.id}>
+              <TableRow className="h-12  border-white/10" key={row.id}>
                 {row.getAllCells().map((cell) => (
                   <TableCell
-                    className="min-w-[20px] max-w-12 md:max-w-[500px] px-4 py-3 text-zinc-300"
+                    style={{ width: `${cell.column.getSize()}px` }}
+                    className="max-w-[700px] px-4 py-3 text-zinc-300"
                     key={cell.id}
                   >
                     <table.FlexRender cell={cell} />
