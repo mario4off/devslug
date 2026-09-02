@@ -11,8 +11,8 @@ export default function SignInButton({ className }: { className: string }) {
     >
       <Image
         src="/icons/google-icon-logo.svg"
-        width={30}
-        height={30}
+        width={25}
+        height={25}
         alt="Logo google"
       />
       <p className="text-black">Iniciar sesión</p>
