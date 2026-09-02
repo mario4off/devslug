@@ -253,7 +253,7 @@ export default function UrlsTable({
                 {row.getAllCells().map((cell) => (
                   <TableCell
                     style={{ width: `${cell.column.getSize()}px` }}
-                    className="max-w-[300px] md:max-w-[700px] px-4 py-3 text-zinc-300"
+                    className="max-w-[300px] md:max-w-[600px] px-4 py-3 text-zinc-300"
                     key={cell.id}
                   >
                     <table.FlexRender cell={cell} />

@@ -3,8 +3,8 @@ import { poppins } from "@/components/ui/fonts";
 import "./globals.css";
 import { Vortex } from "@/components/ui/shadcn-io/vortex";
 import { Suspense } from "react";
-import MainHeader from "@/components/MainHeader";
-import MainFooter from "@/components/MainFooter";
+import MainHeader from "@/components/main-header";
+import MainFooter from "@/components/main-footer";
 import { Toaster } from "sileo";
 import { TooltipProvider } from "@/components/ui/tooltip";
 

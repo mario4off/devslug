@@ -1,18 +1,9 @@
 import Image from "next/image";
 import { auth } from "@/auth";
-import SignInButton from "./SignInButton";
-import SignOutButton from "./SignOutButton";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/DropdowMenu";
+import SignInButton from "./sign-in-button";
+import SignOutButton from "./sign-out-button";
 import Link from "next/link";
-import NavLink from "./ui/NavLink";
+import NavLink from "./ui/nav-link";
 
 export default async function MainHeader() {
   const session = await auth();

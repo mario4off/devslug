@@ -1,5 +1,5 @@
-import { SkeletonUrlsTable } from "@/components/SkeletonUrlsTable";
-import UrlsTable from "@/components/UrlsTable";
+import { SkeletonUrlsTable } from "@/components/skeleton-urls-table";
+import UrlsTable from "@/components/urls-table";
 import { verifySession } from "@/lib/dal";
 import { getUrlsByUserId } from "@/repositories/url.repository";
 import { Suspense } from "react";

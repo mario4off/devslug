@@ -1,9 +1,9 @@
-import ShortenerGuest from "./ShortenerGuest";
+import ShortenerGuest from "./shortener-guest";
 import { auth } from "@/auth";
-import SignInButton from "./SignInButton";
+import SignInButton from "./sign-in-button";
 import { sora } from "./ui/fonts";
 import { redirect } from "next/navigation";
-import ShortenerAuthenticated from "./ShortenerAuthenticated";
+import ShortenerAuthenticated from "./shortener-authenticated";
 
 async function Hero() {
   const session = await auth();

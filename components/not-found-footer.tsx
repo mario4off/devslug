@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PrimaryButton from "./ui/PrimaryButton";
+import PrimaryButton from "./ui/primary-button";
 
 export function NotFoundFooter() {
   return (
