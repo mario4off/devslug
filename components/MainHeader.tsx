@@ -32,17 +32,19 @@ export default async function MainHeader() {
         />
       </Link>
       <div className="flex gap-4 items-center">
-        <nav>
-          <ul className="list-none">
-            <li>
-              <NavLink text="Mis Enlaces"></NavLink>
-            </li>
-          </ul>
-        </nav>
         {!isLogged ? (
           <SignInButton className="hidden md:flex" />
         ) : (
-          <SignOutButton className="" />
+          <>
+            <nav>
+              <ul className="list-none">
+                <li>
+                  <NavLink text="Mis Enlaces"></NavLink>
+                </li>
+              </ul>
+            </nav>
+            <SignOutButton className="" />
+          </>
         )}
       </div>
     </header>

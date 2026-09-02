@@ -22,7 +22,7 @@ export default function LeftIconInput({
           <span>{icon}</span>
         </label>
         <input
-          className=" truncate rounded-r-md w-full px-5"
+          className=" truncate rounded-r-md w-full px-5 bg-zinc-200 text-zinc-900"
           type="text"
           name="url"
           id="url"

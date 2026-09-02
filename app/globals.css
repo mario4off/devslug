@@ -12,14 +12,14 @@
   }
 
   h2 {
-    @apply text-2xl;
+    @apply text-4xl;
   }
 
   p {
     @apply text-slate-200;
   }
 
-  input {
+  /* input {
     @apply text-gray-700 p-3;
-  }
+  } */
 }

@@ -116,7 +116,7 @@ export default function UrlsTable({
   return (
     <div className="bg-zinc-950  border-zinc-800 border rounded-md p-8  ">
       <div className="flex justify-between">
-        <h2>Mis URLs</h2>
+        <h2 className="text-4xl font-semibold">Mis URLs</h2>
         <p className=" text-xs text-zinc-400 sm:hidden">
           Desliza la tabla para ver más →
         </p>
@@ -168,13 +168,13 @@ export default function UrlsTable({
         <TableBody>
           {table.getRowModel().rows.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
+              <TableCell colSpan={columns.length} className="h-24text-center">
                 No tienes URLs acortadas todavía.
               </TableCell>
             </TableRow>
           ) : (
             table.getRowModel().rows.map((row) => (
-              <TableRow className="h-12 border-white/10" key={row.id}>
+              <TableRow className="h-12    border-white/10" key={row.id}>
                 {row.getAllCells().map((cell) => (
                   <TableCell
                     className=" max-w-[250px] px-4 py-3 text-zinc-300"
