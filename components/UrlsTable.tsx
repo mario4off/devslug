@@ -35,18 +35,26 @@ import {
   rowPaginationFeature,
   createPaginatedRowModel,
   createColumnHelper,
+  columnFilteringFeature,
+  globalFilteringFeature,
+  createFilteredRowModel,
+  filterFn_includesString,
 } from "@tanstack/react-table";
 import { use } from "react";
 
 const features = tableFeatures({
   rowSortingFeature,
   rowPaginationFeature,
+  columnFilteringFeature,
+  globalFilteringFeature,
+  filteredRowModel: createFilteredRowModel(),
   sortedRowModel: createSortedRowModel(),
   paginatedRowModel: createPaginatedRowModel(),
   sortFns: {
     alphanumeric: sortFn_alphanumeric,
     text: sortFn_text,
   },
+  filterFns: { includesString: filterFn_includesString },
 });
 
 const columnHelper = createColumnHelper<typeof features, Url>();
@@ -77,12 +85,10 @@ const columns = columnHelper.columns([
       </code>
     ),
   }),
-  columnHelper.accessor("createdAt", {
+  columnHelper.accessor((row) => row.createdAt.toLocaleDateString("es-ES"), {
     header: "Fecha de Creación",
     cell: (info) => (
-      <p className=" px-2 py-1 text-sm text-zinc-300">
-        {info.getValue().toLocaleDateString("es-ES")}
-      </p>
+      <p className=" px-2 py-1 text-sm text-zinc-300">{info.getValue()}</p>
     ),
   }),
 ]);
@@ -97,6 +103,7 @@ export default function UrlsTable({
     features,
     columns,
     data: urls,
+    globalFilterFn: "includesString",
     enableSortingRemoval: false,
     initialState: {
       pagination: {
@@ -108,10 +115,22 @@ export default function UrlsTable({
 
   return (
     <div className="bg-zinc-950  border-zinc-800 border rounded-md p-8  ">
-      <h2>Mis URLs</h2>
-      <p className=" text-xs text-zinc-400 sm:hidden">
-        Desliza la tabla para ver más →
-      </p>
+      <div className="flex justify-between">
+        <h2>Mis URLs</h2>
+        <p className=" text-xs text-zinc-400 sm:hidden">
+          Desliza la tabla para ver más →
+        </p>
+        <div className="relative ">
+          <Search className="absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500"></Search>
+          <input
+            value={table.state.globalFilter ?? ""}
+            className="px-10 p-2 rounded-md border border-zinc-800 text-white
+        bg-zinc-950  outline-none      "
+            onChange={(e) => table.setGlobalFilter(String(e.target.value))}
+            placeholder="Buscar..."
+          />
+        </div>
+      </div>
       <Table className="mt-5">
         <TableHeader>
           {table.getHeaderGroups().map((group) => (
