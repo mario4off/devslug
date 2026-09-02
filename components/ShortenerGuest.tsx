@@ -13,7 +13,7 @@ import { sileo } from "sileo";
 export default function ShortenerGuest() {
   const INITIAL_STATE: UrlFormState = { data: { url: null, userId: null } };
   const [formState, formAction] = useActionState(
-    actions.url.insertUrl,
+    actions.url.insertUrlAction,
     INITIAL_STATE,
   );
   const host = process.env.NEXT_PUBLIC_SITE_URL;

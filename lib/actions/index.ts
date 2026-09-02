@@ -1,5 +1,5 @@
-import { insertUrl } from "./url";
+import { deleteUrlAction, insertUrlAction } from "./url";
 
 export const actions = {
-  url: { insertUrl },
+  url: { insertUrlAction, deleteUrlAction },
 };
