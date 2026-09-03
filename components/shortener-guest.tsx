@@ -28,7 +28,7 @@ export default function ShortenerGuest() {
 
   return (
     <div className="bg-zinc-950 md:w-auto border-zinc-800 border rounded-md p-4 md:p-6 px-2 md:px-3 mt-1 flex flex-col items-center justify-center">
-      <h2 className="text-center text-base md:text-xl">
+      <h2 className="text-center text-sm px-3 md:text-xl">
         Introduce tu URL y consigue una versión acortada
       </h2>
       <form

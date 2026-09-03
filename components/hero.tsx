@@ -14,7 +14,7 @@ async function Hero() {
       <>
         <header className=" mx-10 flex flex-col items-center">
           <h1
-            className={`${sora.className} text-center my-3 md:my-8 text-3xl md:text-6xl`}
+            className={`${sora.className} text-center my-3 md:my-8 text-xl md:text-6xl`}
           >
             Acorta. Comparte. Analiza.
           </h1>
