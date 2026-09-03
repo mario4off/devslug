@@ -194,7 +194,7 @@ export default function UrlsTable({
           <input
             value={table.state.globalFilter ?? ""}
             type="search"
-            className={`w-full sm-auto px-10 p-2 rounded-md border bg-zinc-950 text-white outline-none transition-colors ${
+            className={`w-full text-sm sm-auto px-10 p-2 rounded-md border bg-zinc-950 text-white outline-none transition-colors ${
               table.state.globalFilter
                 ? "border-zinc-200"
                 : "border-zinc-800 hover:border-zinc-200"
