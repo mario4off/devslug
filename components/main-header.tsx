@@ -23,11 +23,11 @@ export default async function MainHeader() {
       </Link>
       <div className="flex gap-6 items-center">
         {!isLogged ? (
-          <SignInButton className="me-1" />
+          <SignInButton />
         ) : (
           <>
             <TopNav />
-            <SignOutButton className="" />
+            <SignOutButton />
           </>
         )}
       </div>

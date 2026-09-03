@@ -36,7 +36,7 @@ export default function ShortenerGuest() {
         className=" w-5/6 flex flex-col gap-7 md:gap-10 justify-center items-center my-5 md:my-10"
       >
         <LeftIconInput
-          icon={<LinkSVG color="white" className="" />}
+          icon={<LinkSVG color="white" />}
           error={formState.errors?.url}
           value={url}
           onChange={(e) => setUrl(e.target.value)}

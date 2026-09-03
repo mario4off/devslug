@@ -3,7 +3,7 @@ export default function Link({
   className,
 }: {
   color: string;
-  className: string;
+  className?: string;
 }) {
   return (
     <svg

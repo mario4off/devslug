@@ -2,7 +2,7 @@
 import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 
-export default function SignInButton({ className }: { className: string }) {
+export default function SignInButton({ className }: { className?: string }) {
   return (
     <button
       onClick={() => signIn("google")}
