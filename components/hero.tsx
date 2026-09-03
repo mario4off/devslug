@@ -19,10 +19,8 @@ async function Hero() {
             Acorta. Comparte. Analiza.
           </h1>
           <p className="text-center  text-sm md:text-xl">
-            Convierte enlaces largos en URLs inteligentes con estadísticas en
-            tiempo real
+            Convierte enlaces largos en URLs inteligentes con estadísticas
           </p>
-          <SignInButton className="block md:hidden mt-6 mb-3" />
         </header>
 
         <section className="flex justify-center mt-3 md:mt-10">

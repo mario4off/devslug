@@ -24,7 +24,7 @@ export default async function MainHeader() {
       </Link>
       <div className="flex gap-6 items-center">
         {!isLogged ? (
-          <SignInButton className="hidden md:flex" />
+          <SignInButton className="me-1" />
         ) : (
           <>
             <nav>
