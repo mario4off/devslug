@@ -12,13 +12,13 @@ async function Hero() {
   if (!isLogged) {
     return (
       <>
-        <header className="mb-4 mx-10 flex flex-col items-center">
+        <header className=" mx-10 flex flex-col items-center">
           <h1
             className={`${sora.className} text-center my-3 md:my-8 text-3xl md:text-6xl`}
           >
             Acorta. Comparte. Analiza.
           </h1>
-          <p className="text-center  text-base md:text-xl">
+          <p className="text-center  text-sm md:text-xl">
             Convierte enlaces largos en URLs inteligentes con estadísticas en
             tiempo real
           </p>
@@ -43,7 +43,7 @@ async function Hero() {
             Personalízalo, consérvalo para siempre y sigue sus métricas.
           </p>
         </header>
-        <section className="flex justify-center mt-5 md:mt-10">
+        <section className="flex justify-center ">
           <ShortenerAuthenticated />
         </section>
       </>

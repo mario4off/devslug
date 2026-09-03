@@ -22,7 +22,7 @@ export default async function MainHeader() {
           alt="Logo devslug"
         />
       </Link>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-6 items-center">
         {!isLogged ? (
           <SignInButton className="hidden md:flex" />
         ) : (

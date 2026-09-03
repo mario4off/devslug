@@ -41,7 +41,7 @@ export default function RootLayout({
               <TooltipProvider>
                 <Toaster position="top-center" offset={{ top: 30 }} />
                 <MainHeader />
-                <main className="flex flex-col my-2 min-w-0 w-full mx-auto px-6 sm:px-6 py-2">
+                <main className="flex flex-col  min-w-0 w-full mx-auto px-6 sm:px-6">
                   {children}
                 </main>
                 <MainFooter />

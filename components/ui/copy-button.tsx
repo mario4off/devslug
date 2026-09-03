@@ -31,7 +31,7 @@ function CopyButton({
       <button
         type="button"
         onClick={handleCopy}
-        className="bg-slate-800 text-white rounded-l-md p-3 flex gap-2 "
+        className="bg-slate-800 text-white rounded-l-md p-2 md:p-3 flex gap-2 "
       >
         <Copy
           color="white"
@@ -48,7 +48,7 @@ function CopyButton({
         />
       </button>
       <input
-        className={`truncate rounded-r-md w-full pl-5 bg-slate-700 ${value == "" ? "text-gray-900" : "transition-all duration-600 text-gray-200"} `}
+        className={`text-sm md:text-base  truncate rounded-r-md w-full pl-5 bg-slate-700 ${value == "" ? "text-gray-900" : "transition-all duration-600 text-gray-200"} `}
         type="text"
         id="newUrl"
         readOnly
