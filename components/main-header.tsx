@@ -3,11 +3,10 @@ import { auth } from "@/auth";
 import SignInButton from "./sign-in-button";
 import SignOutButton from "./sign-out-button";
 import Link from "next/link";
-import NavLink from "./ui/nav-link";
+import TopNav from "./top-nav";
 
 export default async function MainHeader() {
   const session = await auth();
-
   const isLogged = !!session;
 
   return (
@@ -27,13 +26,7 @@ export default async function MainHeader() {
           <SignInButton className="me-1" />
         ) : (
           <>
-            <nav>
-              <ul className="list-none">
-                <li>
-                  <NavLink text="Mis Enlaces"></NavLink>
-                </li>
-              </ul>
-            </nav>
+            <TopNav />
             <SignOutButton className="" />
           </>
         )}

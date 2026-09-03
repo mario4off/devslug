@@ -11,11 +11,11 @@ export default function SignOutButton({ className }: { className: string }) {
     >
       <span className={`hidden md:inline `}>Cerrar Sesión</span>
       <Image
-        src="/icons/signout.svg"
+        src="/icons/exit.png"
         width={20}
         height={20}
         alt="logout icon"
-        className="inline md:hidden"
+        className="inline md:hidden size-5"
       ></Image>
     </button>
   );
