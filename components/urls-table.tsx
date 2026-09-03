@@ -242,9 +242,11 @@ export default function UrlsTable({
         </TableHeader>
         <TableBody>
           {table.getRowModel().rows.length === 0 ? (
-            <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                No tienes URLs acortadas todavía.
+            <TableRow className="h-60">
+              <TableCell colSpan={columns.length} className="text-center">
+                <h3 className="text-xl text-white ">
+                  No tienes URLs acortadas todavía
+                </h3>
               </TableCell>
             </TableRow>
           ) : (
@@ -282,7 +284,7 @@ export default function UrlsTable({
         </button>
         <p className="text-zinc-400">
           Página {table.state.pagination.pageIndex + 1} de{" "}
-          {table.getPageCount()}
+          {table.getPageCount() > 0 ? table.getPageCount() : 1}
         </p>
         <button
           className="text-white disabled:opacity-40"
