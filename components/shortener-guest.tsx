@@ -59,10 +59,10 @@ export default function ShortenerGuest() {
       </form>
       <div className=" mt-1 md:w-11/12 text-sm md:text-base flex flex-col gap-6">
         <p className="text-center">
-          ⏱️ La nueva URL tendrá una validez de 7 días.
+          La nueva URL tendrá una validez de 7 días.
         </p>
         <p className="text-center">
-          🚀 Inicia sesión para mantener los enlaces y controlar tus métricas
+          Inicia sesión para mantener los enlaces y controlar tus métricas
         </p>
       </div>
     </div>

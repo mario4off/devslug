@@ -16,14 +16,10 @@ function CopyButton({
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(true);
+    await navigator.clipboard.writeText(value);
+    setCopied(true);
 
-      setTimeout(() => setCopied(false), 1500);
-    } catch (err) {
-      console.log("error en la copia");
-    }
+    setTimeout(() => setCopied(false), 1500);
   };
 
   return (

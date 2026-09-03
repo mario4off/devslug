@@ -231,7 +231,7 @@ export default function UrlsTable({
                       >
                         <table.FlexRender header={header} />
 
-                        {canSort && <SortIcon className="shrink-0" />}
+                        {canSort && <SortIcon className="shrink-0 size-4" />}
                       </button>
                     )}
                   </TableHead>
