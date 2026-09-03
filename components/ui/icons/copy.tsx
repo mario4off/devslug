@@ -8,15 +8,13 @@ export default function Copy({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`${className} icon icon-tabler icons-tabler-outline icon-tabler-copy`}
+      className={`${className} size-5 md:size-6  icon icon-tabler icons-tabler-outline icon-tabler-copy`}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666" />

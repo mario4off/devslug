@@ -11,11 +11,12 @@ export default function SignInButton({ className }: { className: string }) {
     >
       <Image
         src="/icons/google-icon-logo.svg"
-        width={20}
-        height={20}
+        width={25}
+        height={25}
         alt="Logo google"
+        className="size-5 md:size-6"
       />
-      <p className="text-black text-sm md:text-base">Iniciar Sesión</p>
+      <p className=" text-black text-sm md:text-base">Iniciar Sesión</p>
     </button>
   );
 }

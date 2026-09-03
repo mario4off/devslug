@@ -8,13 +8,11 @@ export default function Link({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
       viewBox="0 0 24 24"
       fill="currentColor"
       stroke={color}
       strokeWidth="0.1"
-      className={`${className} icon icon-tabler icons-tabler-filled icon-tabler-link`}
+      className={`${className} size-5 md:size-6 icon icon-tabler icons-tabler-filled icon-tabler-link`}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M15.707 8.293a1 1 0 0 1 0 1.414l-6 6a1 1 0 1 1 -1.414 -1.414l6 -6a1 1 0 0 1 1.414 0" />
