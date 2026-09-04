@@ -28,4 +28,8 @@
   .panel {
     @apply bg-zinc-950 border-zinc-800 border rounded-md;
   }
+
+  .primary-button {
+    @apply text-sm md:text-base bg-slate-950 border-teal-400 border text-white px-3 p-2  rounded-md w-fit hover:bg-teal-950 hover:scale-105 transition duration-200 ease-in-out;
+  }
 }
