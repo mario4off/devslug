@@ -183,7 +183,7 @@ export default function UrlsTable({
   }
 
   return (
-    <div className="bg-zinc-950  border-zinc-800 border rounded-md p-6 px-8  ">
+    <div className="panel p-6 px-8  ">
       <div className="flex flex-col gap-3 sm:flex-row justify-between">
         <h2 className="text-4xl font-semibold">Mis URLs</h2>
         <p className=" text-xs text-zinc-400 sm:hidden">
