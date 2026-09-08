@@ -12,6 +12,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import PrimaryButton from "./ui/primary-button";
+import CopyButton from "./ui/copy-button";
 
 export default function ShortenerAuthenticated() {
   const slugLabel = (
@@ -71,6 +72,7 @@ export default function ShortenerAuthenticated() {
           />
         </div>
       </form>
+      <CopyButton className="w-full mt-1" value="" placeholder="Copia tu URL" />
       <PrimaryButton title="Crear URL" />
     </div>
   );
