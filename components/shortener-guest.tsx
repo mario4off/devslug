@@ -38,6 +38,7 @@ export default function ShortenerGuest() {
         <LeftIconInput
           icon={<LinkSVG color="white" />}
           error={formState.errors?.url}
+          placeholder="Pega aquí la URL"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />

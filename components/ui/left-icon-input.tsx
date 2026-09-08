@@ -5,12 +5,16 @@ export default function LeftIconInput({
   icon,
   error,
   value,
+  placeholder,
+  disabled = false,
   onChange,
 }: {
   icon: ReactNode;
   error?: string[];
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  disabled?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   const inputId = useId();
   const errorId = `${inputId}-error`;
@@ -30,11 +34,12 @@ export default function LeftIconInput({
           type="text"
           name="url"
           id={inputId}
-          placeholder="Pega aquí la URL"
+          placeholder={placeholder}
           value={value}
           aria-invalid={hasError || undefined}
           aria-describedby={hasError ? errorId : undefined}
           onChange={onChange}
+          disabled={disabled}
         />
       </div>
       <div className="h-1" id={errorId} aria-live="polite">
