@@ -15,7 +15,8 @@
     @apply text-4xl;
   }
 
-  p {
+  p,
+  label {
     @apply text-slate-200;
   }
 
