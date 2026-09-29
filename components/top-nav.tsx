@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function TopNav() {
   const pathname = usePathname();
-  console.log(pathname);
+
   return (
     <nav>
       <ul className="list-none">

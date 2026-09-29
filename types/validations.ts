@@ -4,7 +4,6 @@ export type UrlFormState = {
   data?: {
     url?: string | null;
     slug?: string;
-    userId: string | null;
   };
-  errors?: { url?: string[] };
+  errors?: { url?: string[]; slug?: string[] };
 };

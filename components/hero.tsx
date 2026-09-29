@@ -4,12 +4,13 @@ import SignInButton from "./sign-in-button";
 import { sora } from "./ui/fonts";
 import { redirect } from "next/navigation";
 import ShortenerAuthenticated from "./shortener-authenticated";
+import { User } from "@/lib/generated/prisma/client";
 
 async function Hero() {
   const session = await auth();
+  const user = session?.user;
 
-  const isLogged = !!session;
-  if (!isLogged) {
+  if (!user) {
     return (
       <>
         <header className=" mx-10 flex flex-col items-center">

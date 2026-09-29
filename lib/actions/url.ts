@@ -5,7 +5,6 @@ import { type UrlFormState } from "@/types/validations";
 import { z } from "zod";
 import { createShortUrl } from "@/services/url.service";
 import { deleteUrl } from "@/repositories/url.repository";
-import { revalidatePath } from "next/cache";
 
 export async function insertUrlAction(
   prevState: UrlFormState,
@@ -43,3 +42,5 @@ export async function deleteUrlAction(urlId: number) {
   console.log("Borramos la URL", urlId);
   return deleteUrl(urlId);
 }
+
+export async function insertUserUrlAction() {}
