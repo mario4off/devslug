@@ -1,10 +1,8 @@
 import ShortenerGuest from "./shortener-guest";
 import { auth } from "@/auth";
-import SignInButton from "./sign-in-button";
 import { sora } from "./ui/fonts";
-import { redirect } from "next/navigation";
 import ShortenerAuthenticated from "./shortener-authenticated";
-import { User } from "@/lib/generated/prisma/client";
+import { generateSlug } from "@/lib/utils/url";
 
 async function Hero() {
   const session = await auth();
@@ -43,7 +41,7 @@ async function Hero() {
           </p>
         </header>
         <section className="flex justify-center ">
-          <ShortenerAuthenticated />
+          <ShortenerAuthenticated initialSlug={generateSlug()} />
         </section>
       </>
     );

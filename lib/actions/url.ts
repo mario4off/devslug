@@ -12,6 +12,7 @@ export async function insertUrlAction(
 ): Promise<UrlFormState> {
   const guestUrl = {
     url: formdata.get("url") as string,
+    slug: formdata.get("slug") as string,
   };
 
   const validatedSchema = urlFormSchema.safeParse(guestUrl);
@@ -27,7 +28,10 @@ export async function insertUrlAction(
     };
   }
 
-  const result = await createShortUrl(validatedSchema.data.url);
+  const result = await createShortUrl(
+    validatedSchema.data.url,
+    validatedSchema.data.slug,
+  );
 
   return {
     success: true,

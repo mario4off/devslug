@@ -9,7 +9,7 @@ export default function LeftIconInput({
   disabled = false,
   onChange,
 }: {
-  icon: ReactNode;
+  icon?: ReactNode;
   error?: string[];
   value: string;
   placeholder?: string;
@@ -21,20 +21,20 @@ export default function LeftIconInput({
   const hasError = Boolean(error?.length);
 
   return (
-    <div className="w-full">
-      <div className="flex justify-center w-full">
+    <div className="w-full ">
+      <div className="flex min-h-10 justify-center w-full">
         <label
-          className="bg-slate-800 text-white rounded-l-md p-2 md:p-3 flex gap-2"
+          className={`${disabled ? `bg-slate-900 [&_p]:text-gray-600` : "bg-slate-800"}  rounded-l-md p-2 md:p-3 flex gap-2`}
           htmlFor={inputId}
         >
           <span>{icon}</span>
         </label>
         <input
-          className=" text-sm md:text-base truncate rounded-r-md w-full px-5 bg-zinc-200 text-zinc-900"
+          className={`${disabled ? "bg-zinc-900" : "bg-zinc-200"} text-sm md:text-base truncate rounded-r-md w-full px-5  text-zinc-900`}
           type="text"
           name="url"
           id={inputId}
-          placeholder={placeholder}
+          placeholder={disabled ? "" : placeholder}
           value={value}
           aria-invalid={hasError || undefined}
           aria-describedby={hasError ? errorId : undefined}

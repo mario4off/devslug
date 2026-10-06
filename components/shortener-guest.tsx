@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import { sileo } from "sileo";
 
 export default function ShortenerGuest() {
-  const INITIAL_STATE: UrlFormState = { data: { url: null } };
+  const INITIAL_STATE: UrlFormState = { data: { url: null, slug: null } };
   const [formState, formAction] = useActionState(
     actions.url.insertUrlAction,
     INITIAL_STATE,

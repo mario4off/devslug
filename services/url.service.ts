@@ -5,8 +5,10 @@ import { Url } from "@/lib/generated/prisma/client";
 import { createUrl } from "@/repositories/url.repository";
 import { createUrlMeta } from "@/repositories/metadata.repository";
 
-export async function createShortUrl(originalUrl: string) {
-  const slug = generateSlug();
+export async function createShortUrl(originalUrl: string, slug: string) {
+  if (!slug) {
+    slug = generateSlug();
+  }
 
   const url = await createUrl(originalUrl, slug);
 

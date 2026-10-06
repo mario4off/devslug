@@ -3,7 +3,7 @@ export type UrlFormState = {
   message?: string;
   data?: {
     url?: string | null;
-    slug?: string;
+    slug?: string | null;
   };
   errors?: { url?: string[]; slug?: string[] };
 };
