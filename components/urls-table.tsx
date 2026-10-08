@@ -85,7 +85,7 @@ export default function UrlsTable({
   const columns = columnHelper.columns([
     columnHelper.accessor("originalUrl", {
       header: "URL Original",
-      size: 10,
+      size: 200,
       cell: (info) => (
         <Tooltip>
           <TooltipTrigger asChild>
@@ -101,7 +101,7 @@ export default function UrlsTable({
     }),
     columnHelper.accessor("slug", {
       header: "Slug",
-      size: 80,
+      size: 220,
       cell: (info) => (
         <code
           className="rounded bg-teal-500/10 w-fit px-2 py-1 text-sm text-teal-400"
@@ -113,14 +113,14 @@ export default function UrlsTable({
     }),
     columnHelper.accessor((row) => row.createdAt.toLocaleDateString("es-ES"), {
       header: "Fecha de Creación",
-      size: 80,
+      size: 70,
       cell: (info) => (
         <p className=" px-2 py-1 text-sm text-zinc-300">{info.getValue()}</p>
       ),
     }),
     columnHelper.display({
       id: "actions",
-      size: 25,
+      size: 15,
       cell: ({ row }) => (
         <AlertDialog>
           <AlertDialogTrigger asChild>
