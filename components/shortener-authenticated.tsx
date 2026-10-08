@@ -13,6 +13,8 @@ import { actions } from "@/lib/actions";
 import { normalizeSlugInput } from "@/lib/utils/url";
 import { sileo } from "sileo";
 import { Span } from "next/dist/trace";
+import Input from "./ui/input";
+import { Target } from "lucide-react";
 
 export default function ShortenerAuthenticated({
   initialSlug,
@@ -20,9 +22,6 @@ export default function ShortenerAuthenticated({
   initialSlug: string;
 }) {
   const [randomSlug] = useState(initialSlug);
-  // const slugLabel = (
-  //   <p className="px-2 whitespace-nowrap">devslug.app.vercel/{randomSlug}/</p>
-  // );
 
   const host = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -31,7 +30,8 @@ export default function ShortenerAuthenticated({
   const [slugOption, setSlugOption] = useState("random");
   const isCustom = slugOption == "custom";
   const finalSlug = isCustom ? `${randomSlug}-${customSlug}` : randomSlug;
-
+  const canCreateUrl =
+    destinationUrl.trim() && (slugOption == "random" || customSlug.trim());
   const INITIAL_STATE: UrlFormState = {
     data: { url: null, slug: null },
   };
@@ -83,7 +83,7 @@ export default function ShortenerAuthenticated({
                 </FieldDescription>
               </div>
             </div>
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-3">
               <RadioGroupItem
                 className="mt-1"
                 value="custom"
@@ -94,15 +94,13 @@ export default function ShortenerAuthenticated({
                 <Label htmlFor="custom-slug">Personalizado</Label>
                 <FieldDescription>Elige una URL personalizada</FieldDescription>
               </div>
-              <div className="ms-4">
-                <LeftIconInput
+              <div className="ms-7 w-[250px]">
+                <Input
                   placeholder="Escribe el slug"
-                  value={customSlug}
                   disabled={!isCustom}
+                  value={customSlug}
                   error={formState.errors?.slug}
-                  onChange={(e) =>
-                    setCustomSlug(normalizeSlugInput(e.target.value))
-                  }
+                  onChange={(e) => setCustomSlug(e.target.value)}
                 />
               </div>
             </div>
@@ -122,7 +120,7 @@ export default function ShortenerAuthenticated({
           <PrimaryButton
             title="Crear URL"
             type="submit"
-            disabled={!destinationUrl.trim()}
+            disabled={!canCreateUrl}
           />
         </div>
         <input type="hidden" value={finalSlug} name="slug" />
