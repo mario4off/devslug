@@ -1,5 +1,5 @@
 export type CreateShortUrlInput = {
   url: string;
   slug?: string;
-  userId?: string | null;
+  userId: string | null;
 };

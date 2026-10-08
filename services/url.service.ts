@@ -15,7 +15,7 @@ export async function createShortUrl({
     slug = generateSlug();
   }
 
-  const createdUrl = await createUrl(url, slug);
+  const createdUrl = await createUrl(url, slug, userId);
 
   const metadata = await extractMetaDataFromUrl(createdUrl.originalUrl);
 
