@@ -100,7 +100,9 @@ export default function ShortenerAuthenticated({
                   disabled={!isCustom}
                   value={customSlug}
                   error={formState.errors?.slug}
-                  onChange={(e) => setCustomSlug(e.target.value)}
+                  onChange={(e) =>
+                    setCustomSlug(normalizeSlugInput(e.target.value))
+                  }
                 />
               </div>
             </div>

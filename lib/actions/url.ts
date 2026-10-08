@@ -5,15 +5,19 @@ import { type UrlFormState } from "@/types/validations";
 import { z } from "zod";
 import { createShortUrl } from "@/services/url.service";
 import { deleteUrl } from "@/repositories/url.repository";
+import { auth } from "@/auth";
 
 export async function insertUrlAction(
   prevState: UrlFormState,
   formdata: FormData,
 ): Promise<UrlFormState> {
+  const session = await auth();
   const guestUrl = {
     url: formdata.get("url") as string,
     slug: formdata.get("slug") as string,
   };
+
+  const userId = session?.user?.id || null;
 
   const validatedSchema = urlFormSchema.safeParse(guestUrl);
 
@@ -28,10 +32,9 @@ export async function insertUrlAction(
     };
   }
 
-  const result = await createShortUrl(
-    validatedSchema.data.url,
-    validatedSchema.data.slug,
-  );
+  const result = await createShortUrl({ ...validatedSchema.data, userId });
+
+  console.log("vamos con la nueva url", result);
 
   return {
     success: true,

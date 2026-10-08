@@ -4,23 +4,28 @@ import { extractMetaDataFromUrl } from "./metada.service";
 import { Url } from "@/lib/generated/prisma/client";
 import { createUrl } from "@/repositories/url.repository";
 import { createUrlMeta } from "@/repositories/metadata.repository";
+import { CreateShortUrlInput } from "@/types/url";
 
-export async function createShortUrl(originalUrl: string, slug: string) {
+export async function createShortUrl({
+  url,
+  slug,
+  userId,
+}: CreateShortUrlInput) {
   if (!slug) {
     slug = generateSlug();
   }
 
-  const url = await createUrl(originalUrl, slug);
+  const createdUrl = await createUrl(url, slug);
 
-  const metadata = await extractMetaDataFromUrl(originalUrl);
+  const metadata = await extractMetaDataFromUrl(createdUrl.originalUrl);
 
   console.log("estos son los metadata2: ", metadata);
 
-  const result = await createUrlMeta({ urlId: url.id, ...metadata });
+  const result = await createUrlMeta({ urlId: createdUrl.id, ...metadata });
 
   console.log("resultado: ", result);
 
-  return url;
+  return createdUrl;
 }
 
 export function isExpired(url: Url): boolean {
