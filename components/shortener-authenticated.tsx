@@ -64,9 +64,9 @@ export default function ShortenerAuthenticated({
           error={formState.errors?.url}
         />
         <p>¿Cómo quieres tu enlace? </p>
-        <div className="flex flex-col gap-5 ">
+        <div className="flex flex-col">
           <RadioGroup
-            className="my-2 gap-4"
+            className="my-2 gap-5"
             defaultValue={slugOption}
             onValueChange={(value) => setSlugOption(value)}
           >
@@ -83,7 +83,7 @@ export default function ShortenerAuthenticated({
                 </FieldDescription>
               </div>
             </div>
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-8">
               <RadioGroupItem
                 className="mt-1"
                 value="custom"

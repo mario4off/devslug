@@ -22,15 +22,15 @@ export default function LeftIconInput({
 
   return (
     <div className="w-full ">
-      <div className="flex min-h-10 justify-center w-full">
+      <div className="flex min-h-12 justify-center w-full">
         <label
-          className={`${disabled ? `bg-slate-900 [&_p]:text-gray-600` : "bg-slate-800"}  rounded-l-md p-2 md:p-3 flex gap-2`}
+          className={`${disabled ? `bg-zinc-950 [&_p]:text-gray-600` : "bg-slate-800"} transition duration-200  rounded-l-md p-2 md:p-3 flex gap-2`}
           htmlFor={inputId}
         >
           <span>{icon}</span>
         </label>
         <input
-          className={`${disabled ? "bg-zinc-900" : "bg-zinc-200"} text-sm md:text-base truncate rounded-r-md w-full px-5  text-zinc-900`}
+          className={`${disabled ? "bg-zinc-950" : "bg-zinc-200"} text-sm md:text-base transition duration-200  truncate rounded-r-md w-full px-5  text-zinc-900`}
           type="text"
           name="url"
           id={inputId}
