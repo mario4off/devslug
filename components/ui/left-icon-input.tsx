@@ -22,7 +22,7 @@ export default function LeftIconInput({
 
   return (
     <div className="w-full ">
-      <div className="flex min-h-12 justify-center w-full">
+      <div className="flex justify-center w-full">
         <label
           className={`${disabled ? `bg-zinc-950 [&_p]:text-gray-600` : "bg-slate-800"} transition duration-200  rounded-l-md p-2 md:p-3 flex gap-2`}
           htmlFor={inputId}

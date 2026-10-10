@@ -12,14 +12,15 @@ export async function insertUrlAction(
   formdata: FormData,
 ): Promise<UrlFormState> {
   const session = await auth();
-  const guestUrl = {
+  const urlData = {
     url: formdata.get("url") as string,
-    slug: formdata.get("slug") as string,
+    slug: (formdata.get("slug") as string) ?? undefined,
   };
 
+  console.log(urlData);
   const userId = session?.user?.id || null;
 
-  const validatedSchema = urlFormSchema.safeParse(guestUrl);
+  const validatedSchema = urlFormSchema.safeParse(urlData);
 
   if (!validatedSchema.success) {
     const flattenedErrors = z.flattenError(validatedSchema.error);

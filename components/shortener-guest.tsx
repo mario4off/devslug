@@ -5,7 +5,7 @@ import CopyButton from "./ui/copy-button";
 import PrimaryButton from "./ui/primary-button";
 import { actions } from "@/lib/actions";
 import { type UrlFormState } from "@/types/validations";
-import LinkSVG from "@/components/ui/icons/link";
+import Link from "@/components/ui/icons/link";
 import LeftIconInput from "./ui/left-icon-input";
 import { useEffect, useState } from "react";
 import { sileo } from "sileo";
@@ -36,7 +36,7 @@ export default function ShortenerGuest() {
         className=" w-5/6 flex flex-col gap-7 md:gap-10 justify-center items-center my-5 md:my-10"
       >
         <LeftIconInput
-          icon={<LinkSVG color="white" />}
+          icon={<Link color="white" />}
           error={formState.errors?.url}
           placeholder="Pega aquí la URL"
           value={url}
