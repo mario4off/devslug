@@ -1,13 +1,6 @@
 import { Url } from "@/lib/generated/prisma/client";
 import { isExpired } from "@/services/url.service";
-
-jest.mock("@/lib/utils/url", () => ({
-  generateSlug: jest.fn(),
-}));
-
-jest.mock("@/services/metada.service", () => ({
-  extractMetaDataFromUrl: jest.fn(),
-}));
+import { describe, expect, it } from "vitest";
 
 describe("isExpired", () => {
   it("returns true if the URL has more than 7 days", () => {
