@@ -20,7 +20,7 @@ export default function Input({
 
   return (
     <div className="w-full ">
-      <div className="flex min-h-12 justify-center w-full">
+      <div className="flex min-h-9 md:min-h-12 justify-center w-full">
         <label htmlFor={inputId}></label>
         <input
           className={`${disabled ? "bg-zinc-950" : "bg-zinc-200"} text-sm md:text-base transition duration-200  truncate rounded-md w-full px-5  text-zinc-900`}

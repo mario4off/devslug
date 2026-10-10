@@ -84,18 +84,23 @@ export default function ShortenerAuthenticated({
                 </FieldDescription>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <RadioGroupItem
-                className="mt-1"
-                value="custom"
-                id="custom-slug"
-              />
+            <div className="flex flex-col md:flex-row items-start gap-3">
+              <div className="flex gap-3">
+                <RadioGroupItem
+                  className="mt-1"
+                  value="custom"
+                  id="custom-slug"
+                />
 
-              <div>
-                <Label htmlFor="custom-slug">Personalizado</Label>
-                <FieldDescription>Elige una URL personalizada</FieldDescription>
+                <div>
+                  <Label htmlFor="custom-slug">Personalizado</Label>
+                  <FieldDescription>
+                    Elige una URL personalizada
+                  </FieldDescription>
+                </div>
               </div>
-              <div className="ms-7 w-[250px]">
+
+              <div className="ms-7 w-9/10 md:w-[250px]">
                 <Input
                   placeholder="Escribe el slug"
                   disabled={!isCustom}
