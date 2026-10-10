@@ -39,7 +39,7 @@ export default function RootLayout({
               className="min-h-screen  overflow-hidden  grid grid-rows-[auto_1fr_auto]"
             >
               <TooltipProvider>
-                <Toaster position="top-center" offset={{ top: 30 }} />
+                <Toaster position="top-center" offset={{ top: 54 }} />
                 <MainHeader />
                 <main className="flex flex-col  min-w-0 w-full mx-auto px-6 sm:px-6">
                   {children}

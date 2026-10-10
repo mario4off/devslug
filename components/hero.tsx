@@ -11,7 +11,7 @@ async function Hero() {
   if (!user) {
     return (
       <>
-        <header className=" mx-10 flex flex-col items-center">
+        <header className=" mx-10 mt-4 flex flex-col items-center">
           <h1
             className={`${sora.className} text-center my-3 md:my-8 text-xl md:text-6xl`}
           >
