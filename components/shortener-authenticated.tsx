@@ -44,6 +44,7 @@ export default function ShortenerAuthenticated({
   useEffect(() => {
     if (formState.success) {
       sileo.success({ title: "URL acortada correctamente" });
+      setCustomSlug("");
     }
   }, [formState]);
 
