@@ -5,5 +5,9 @@ export function generateSlug(): string {
 }
 
 export function normalizeSlugInput(value: string) {
-  return value.replace(/\s+/g, "-");
+  return value
+    .replace(/\s/g, "-")
+    .replace(/[^a-zA-Z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-+/, "");
 }
