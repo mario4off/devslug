@@ -6,6 +6,7 @@ import { z } from "zod";
 import { createShortUrl } from "@/services/url.service";
 import { deleteUrl } from "@/repositories/url.repository";
 import { auth } from "@/auth";
+import { Prisma } from "../generated/prisma/client";
 
 export async function insertUrlAction(
   prevState: UrlFormState,
@@ -17,7 +18,6 @@ export async function insertUrlAction(
     slug: (formdata.get("slug") as string) ?? undefined,
   };
 
-  console.log(urlData);
   const userId = session?.user?.id || null;
 
   const validatedSchema = urlFormSchema.safeParse(urlData);
@@ -33,17 +33,33 @@ export async function insertUrlAction(
     };
   }
 
-  const result = await createShortUrl({ ...validatedSchema.data, userId });
+  try {
+    const result = await createShortUrl({ ...validatedSchema.data, userId });
+    console.log("vamos con la nueva url", result);
 
-  console.log("vamos con la nueva url", result);
-
-  return {
-    success: true,
-    message: "Url registered",
-    data: {
-      ...result,
-    },
-  };
+    return {
+      success: true,
+      message: "Url registered",
+      data: {
+        ...result,
+      },
+    };
+  } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code == "P2002"
+    ) {
+      return {
+        success: false,
+        message: "Slug already registered.",
+        ...prevState,
+        errors: {
+          slug: ["Slug ya registrado."],
+        },
+      };
+    }
+    throw error;
+  }
 }
 
 export async function deleteUrlAction(urlId: number) {

@@ -29,8 +29,9 @@ export default function ShortenerAuthenticated({
   const [destinationUrl, setDestinationUrl] = useState("");
   const [slugOption, setSlugOption] = useState("random");
   const [urlError, setUrlError] = useState<string[] | undefined>();
+  const [slugError, setSlugError] = useState<string[] | undefined>();
   const isCustom = slugOption == "custom";
-  const finalSlug = isCustom ? `${randomSlug}-${customSlug}` : randomSlug;
+  const finalSlug = isCustom ? `${customSlug}` : randomSlug;
   const canCreateUrl =
     destinationUrl.trim() && (slugOption == "random" || customSlug.trim());
   const INITIAL_STATE: UrlFormState = {
@@ -43,6 +44,7 @@ export default function ShortenerAuthenticated({
   );
 
   useEffect(() => {
+    setSlugError(formState.errors?.slug);
     setUrlError(formState.errors?.url);
     if (formState.success) {
       sileo.success({ title: "URL acortada correctamente" });
@@ -110,10 +112,11 @@ export default function ShortenerAuthenticated({
                   placeholder="Escribe el slug"
                   disabled={!isCustom}
                   value={customSlug}
-                  error={formState.errors?.slug}
-                  onChange={(e) =>
-                    setCustomSlug(normalizeSlugInput(e.target.value))
-                  }
+                  error={slugError}
+                  onChange={(e) => {
+                    setCustomSlug(normalizeSlugInput(e.target.value));
+                    setSlugError(undefined);
+                  }}
                 />
               </div>
             </div>

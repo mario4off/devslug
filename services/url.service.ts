@@ -2,7 +2,7 @@ import prisma from "@/lib/db";
 import { generateSlug } from "@/lib/utils/url";
 import { extractMetaDataFromUrl } from "./metada.service";
 import { Url } from "@/lib/generated/prisma/client";
-import { createUrl } from "@/repositories/url.repository";
+import { createUrl, findUrlBySlug } from "@/repositories/url.repository";
 import { createUrlMeta } from "@/repositories/metadata.repository";
 import { CreateShortUrlInput } from "@/types/url";
 
@@ -33,4 +33,8 @@ export function isExpired(url: Url): boolean {
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
   return url.createdAt < sevenDaysAgo;
+}
+
+export async function slugExists(slug: string) {
+  return await !findUrlBySlug(slug);
 }
