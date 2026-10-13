@@ -10,7 +10,7 @@ import PrimaryButton from "./ui/primary-button";
 import CopyButton from "./ui/copy-button";
 import { UrlFormState } from "@/types/validations";
 import { actions } from "@/lib/actions";
-import { normalizeSlugInput } from "@/lib/utils/url";
+import { generateSlug, normalizeSlugInput } from "@/lib/utils/url";
 import { sileo } from "sileo";
 import { Span } from "next/dist/trace";
 import Input from "./ui/input";
@@ -21,7 +21,7 @@ export default function ShortenerAuthenticated({
 }: {
   initialSlug: string;
 }) {
-  const [randomSlug] = useState(initialSlug);
+  const [randomSlug, setRandomSlug] = useState(initialSlug);
 
   const host = process.env.NEXT_PUBLIC_SITE_URL;
 
@@ -31,7 +31,7 @@ export default function ShortenerAuthenticated({
   const [urlError, setUrlError] = useState<string[] | undefined>();
   const [slugError, setSlugError] = useState<string[] | undefined>();
   const isCustom = slugOption == "custom";
-  const finalSlug = isCustom ? `${customSlug}` : randomSlug;
+  const finalSlug = isCustom ? `${customSlug}-${randomSlug}` : randomSlug;
   const canCreateUrl =
     destinationUrl.trim() && (slugOption == "random" || customSlug.trim());
   const INITIAL_STATE: UrlFormState = {
@@ -44,11 +44,15 @@ export default function ShortenerAuthenticated({
   );
 
   useEffect(() => {
+    if (formState.errors?.slug) {
+      setSlugOption("custom");
+    }
     setSlugError(formState.errors?.slug);
     setUrlError(formState.errors?.url);
     if (formState.success) {
       sileo.success({ title: "URL acortada correctamente" });
       setCustomSlug("");
+      setRandomSlug(generateSlug());
     }
   }, [formState]);
 
@@ -75,7 +79,7 @@ export default function ShortenerAuthenticated({
         <div className="flex flex-col">
           <RadioGroup
             className="my-2 gap-5"
-            defaultValue={slugOption}
+            value={slugOption}
             onValueChange={(value) => setSlugOption(value)}
           >
             <div className="flex  items-start gap-3 ">
