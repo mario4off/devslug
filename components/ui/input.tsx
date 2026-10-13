@@ -26,6 +26,7 @@ export default function Input({
           className={`${disabled ? "bg-zinc-950" : "bg-zinc-200"} text-sm md:text-base transition duration-200  truncate rounded-md w-full px-5  text-zinc-900`}
           type="text"
           name="url"
+          maxLength={250}
           id={inputId}
           onChange={onChange}
           value={value}

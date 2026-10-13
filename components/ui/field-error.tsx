@@ -5,7 +5,7 @@ export default function FieldError({ error }: { error: String[] }) {
     <p
       id="url-eror"
       aria-live="polite"
-      className="text-red-500 text-sm p-1 text-center"
+      className="text-red-500 text-xs md:text-sm p-1 text-center"
     >
       {error[0]}
     </p>
