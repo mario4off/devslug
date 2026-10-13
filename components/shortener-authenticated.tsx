@@ -28,6 +28,7 @@ export default function ShortenerAuthenticated({
   const [customSlug, setCustomSlug] = useState("");
   const [destinationUrl, setDestinationUrl] = useState("");
   const [slugOption, setSlugOption] = useState("random");
+  const [urlError, setUrlError] = useState<string[] | undefined>();
   const isCustom = slugOption == "custom";
   const finalSlug = isCustom ? `${randomSlug}-${customSlug}` : randomSlug;
   const canCreateUrl =
@@ -42,6 +43,7 @@ export default function ShortenerAuthenticated({
   );
 
   useEffect(() => {
+    setUrlError(formState.errors?.url);
     if (formState.success) {
       sileo.success({ title: "URL acortada correctamente" });
       setCustomSlug("");
@@ -60,9 +62,12 @@ export default function ShortenerAuthenticated({
         <LeftIconInput
           placeholder="Pega aquí la URL"
           value={destinationUrl}
-          onChange={(e) => setDestinationUrl(e.target.value)}
+          onChange={(e) => {
+            setDestinationUrl(e.target.value);
+            setUrlError(undefined);
+          }}
           icon={<Link color="white" />}
-          error={formState.errors?.url}
+          error={urlError}
         />
         <p>¿Cómo quieres tu enlace? </p>
         <div className="flex flex-col">
@@ -84,7 +89,7 @@ export default function ShortenerAuthenticated({
                 </FieldDescription>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row items-start gap-3">
+            <div className="flex flex-col md:flex-row items-start gap-1">
               <div className="flex gap-3">
                 <RadioGroupItem
                   className="mt-1"

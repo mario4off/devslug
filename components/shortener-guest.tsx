@@ -19,8 +19,10 @@ export default function ShortenerGuest() {
   const host = process.env.NEXT_PUBLIC_SITE_URL;
 
   const [url, setUrl] = useState("");
+  const [urlError, setUrlError] = useState<string[] | undefined>();
 
   useEffect(() => {
+    setUrlError(formState.errors?.url);
     if (formState.success) {
       sileo.success({ title: "URL acortada correctamente" });
     }
@@ -37,10 +39,13 @@ export default function ShortenerGuest() {
       >
         <LeftIconInput
           icon={<Link color="white" />}
-          error={formState.errors?.url}
+          error={urlError}
           placeholder="Pega aquí la URL"
           value={url}
-          onChange={(e) => setUrl(e.target.value)}
+          onChange={(e) => {
+            setUrl(e.target.value);
+            setUrlError(undefined);
+          }}
         />
 
         <CopyButton
