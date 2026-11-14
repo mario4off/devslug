@@ -3,6 +3,8 @@ import { findUrlBySlug } from "@/repositories/url.repository";
 import { getMetadataByUrl } from "@/repositories/metadata.repository";
 import generatePreview from "@/lib/utils/generate-preview";
 import { userAgent } from "next/server";
+import { CreateClickInput } from "@/types/url";
+import { createClick } from "@/repositories/click.repository";
 
 export async function GET(
   request: Request,
@@ -11,7 +13,8 @@ export async function GET(
   const { slug } = await params;
 
   const agent = userAgent(request);
-  console.log(request.headers);
+  const referer = request.headers.get("referer");
+  console.log(referer);
 
   const result = await findUrlBySlug(slug);
   console.log(result);
@@ -41,5 +44,16 @@ export async function GET(
       });
     }
   }
+
+  try {
+    await createClick({
+      urlId: result.id,
+      device: agent?.device.type ?? "desktop",
+      browser: agent.browser.name ?? null,
+    });
+  } catch (error) {
+    console.log("Error al registrar el click", error);
+  }
+
   return Response.redirect(result.originalUrl, 302);
 }

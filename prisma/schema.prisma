@@ -93,7 +93,7 @@ model Click{
   createdAt DateTime @default(now())
   urlId Int
   url Url @relation(fields: [urlId], references: [id], onDelete: Cascade)
-  referrer String?
+  browser String?
   device String?
   @@index([urlId, createdAt])
 }
