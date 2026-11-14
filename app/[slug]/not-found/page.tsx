@@ -25,7 +25,7 @@ export default async function NotFound({
       <header className="flex flex-col items-center">
         <h1 className={`${sora.className} text-center`}>
           No encontramos este enlace
-        </h1>{" "}
+        </h1>
         {headerContent}
       </header>
 

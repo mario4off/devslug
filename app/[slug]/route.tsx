@@ -21,7 +21,7 @@ export async function GET(
 
   const expired = isExpired(result);
 
-  if (expired) {
+  if (expired && !result.userId) {
     return Response.redirect(
       new URL(`/${slug}/not-found?reason=expired`, request.url),
     );
