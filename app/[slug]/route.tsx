@@ -1,8 +1,8 @@
 import { isExpired } from "@/services/url.service";
-import { isBot } from "isbot";
 import { findUrlBySlug } from "@/repositories/url.repository";
 import { getMetadataByUrl } from "@/repositories/metadata.repository";
 import generatePreview from "@/lib/utils/generate-preview";
+import { userAgent } from "next/server";
 
 export async function GET(
   request: Request,
@@ -10,7 +10,8 @@ export async function GET(
 ) {
   const { slug } = await params;
 
-  const userAgent = request.headers.get("user-agent");
+  const agent = userAgent(request);
+  console.log(request.headers);
 
   const result = await findUrlBySlug(slug);
   console.log(result);
@@ -27,7 +28,7 @@ export async function GET(
     );
   }
 
-  if (isBot(userAgent)) {
+  if (agent.isBot) {
     console.log("Es un bot");
     const urlMetadata = await getMetadataByUrl(result?.id);
 
