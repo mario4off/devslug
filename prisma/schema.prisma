@@ -72,6 +72,7 @@ model Url {
   userId String?
   user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
   meta UrlMeta?
+  click Click[]
   createdAt DateTime @default(now())
 }
 
@@ -84,4 +85,15 @@ description String?
 image String?
 favicon String?
 createdAt DateTime @default(now())
+}
+
+
+model Click{
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  urlId Int
+  url Url @relation(fields: [urlId], references: [id], onDelete: Cascade)
+  referrer String?
+  device String?
+  @@index([urlId, createdAt])
 }
