@@ -10,7 +10,7 @@ export default function TopNav() {
 
   return (
     <nav>
-      <ul className="list-none">
+      <ul className="list-none flex gap-4">
         <li>
           {pathname != "/" && (
             <NavLink route="/" text="Inicio">
