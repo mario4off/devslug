@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function NotFoundHeader() {
   return (
     <>
-      <p className="mt-3 text-center text-base md:text-xl ">
+      <p className="mt-4 text-center text-base md:text-xl ">
         El enlace que estás buscando no existe o ya no está disponible.
       </p>
       <Image

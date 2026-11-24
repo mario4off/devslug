@@ -19,6 +19,7 @@ export async function GET(
   const result = await findUrlBySlug(slug);
   console.log(result);
 
+  console.log("vamos a ello!!!");
   if (!result) {
     return Response.redirect(new URL(`/${slug}/not-found`, request.url));
   }
@@ -26,9 +27,7 @@ export async function GET(
   const expired = isExpired(result);
 
   if (expired && !result.userId) {
-    return Response.redirect(
-      new URL(`/${slug}/not-found?reason=expired`, request.url),
-    );
+    return Response.redirect(new URL(`/${slug}/expired`, request.url));
   }
 
   if (agent.isBot) {
