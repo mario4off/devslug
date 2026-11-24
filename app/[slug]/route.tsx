@@ -19,7 +19,6 @@ export async function GET(
   const result = await findUrlBySlug(slug);
   console.log(result);
 
-  console.log("vamos a ello!!!");
   if (!result) {
     return Response.redirect(new URL(`/${slug}/not-found`, request.url));
   }
@@ -47,7 +46,7 @@ export async function GET(
   try {
     await createClick({
       urlId: result.id,
-      device: agent?.device.type ?? "desktop",
+      device: agent?.device.type ?? null,
       browser: agent.browser.name ?? null,
     });
   } catch (error) {

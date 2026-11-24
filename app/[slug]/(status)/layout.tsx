@@ -8,8 +8,8 @@ export default function StatusLayout({
 }) {
   return (
     <section>
-      <header className="flex flex-col items-center">
-        <h1 className={`${sora.className} text-center`}>
+      <header className="flex flex-col  items-center">
+        <h1 className={`${sora.className} mt-10  text-center`}>
           No encontramos este enlace
         </h1>
         {children}
